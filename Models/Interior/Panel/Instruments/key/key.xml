@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>key.ac</path>
+
+  <animation>
+    <type>material</type>
+    <object-name>base</object-name>
+    <object-name>key</object-name>
+    <emission>
+      <red>  0.01</red>
+      <green>0.01</green>
+      <blue> 0.01</blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <object-name>base</object-name>
+    <object-name>key</object-name>
+    <min-m>0</min-m>
+    <max-m>20</max-m>
+  </animation>
+
+  <animation>
+    <type>knob</type>
+    <object-name>key</object-name>
+    <property>controls/switches/main_key</property>
+    <center>
+      <x-m> 0 </x-m>
+      <y-m> 0 </y-m>
+      <z-m> 0 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+    <factor>-70</factor>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/switches/main_key</property>
+      </binding>
+    </action>
+  </animation>
+
+</PropertyList>

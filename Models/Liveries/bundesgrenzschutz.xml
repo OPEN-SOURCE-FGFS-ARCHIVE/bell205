@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--by Sanni-->
+
+<PropertyList>
+
+  <sim>
+    <model>
+      <livery>
+        <name type="string">Bundesgrenzschutz</name>
+        <texture>Liveries/bundesgrenzschutz.png</texture>
+
+      
+      </livery>
+      <bell205>
+        <hoist-enabled>true</hoist-enabled>
+        <hoist-ext>false</hoist-ext>
+      </bell205>
+    </model>
+	<rendering>
+			<refl_correction type="string">-0.37</refl_correction>
+			<fresnel-factor>-0.0</fresnel-factor>
+		</rendering>
+	
+  </sim>
+
+</PropertyList>
+

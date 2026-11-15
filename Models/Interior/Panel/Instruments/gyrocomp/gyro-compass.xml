@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>gyro-compass.ac</path>
+
+  <animation>
+    <type>material</type>
+    <object-name>avswitch</object-name>
+    <object-name>face</object-name>
+    <object-name>gyrobug</object-name>
+    <object-name>needle1</object-name>
+    <object-name>needle2</object-name>
+    <condition>
+      <property>systems/electrical/outputs/inst_panel_lights</property>
+    </condition>
+    <emission>
+      <factor-prop>controls/lighting/instltg/pilot</factor-prop>
+      <red>   0.1 </red>
+      <green> 0.1 </green>
+      <blue>  0.1 </blue>
+    </emission>
+  </animation>
+
+  <effect>
+    <inherits-from>Aircraft/bell205/Models/Effects/reflectglasint-uber</inherits-from>
+    <object-name>vitre</object-name>
+  </effect>
+
+  <effect>
+    <condition>
+      <property>sim/rendering/rembrandt/enabled</property>
+    </condition>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>vitre</object-name>
+  </effect>
+
+  <animation>
+    <type>range</type>
+    <object-name>vitre</object-name>
+    <object-name>face</object-name>
+    <object-name>needle1</object-name>
+    <object-name>needle2</object-name>
+    <object-name>avswitch</object-name>
+    <object-name>gyrobug</object-name>
+    <object-name>fond</object-name>
+    <min-m>0</min-m>
+    <max-m>20</max-m>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>face</object-name>
+    <property>instrumentation/magnetic-compass/indicated-heading-deg</property>
+    <condition>
+      <property>systems/electrical/outputs/gyro_comp</property>
+    </condition>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>needle1</object-name>
+    <condition>
+      <property>systems/electrical/outputs/gyro_comp</property>
+      <property>instrumentation/magnetic-compass/adf-vor</property>
+    </condition>
+    <property>instrumentation/adf/indicated-bearing-deg</property>
+    <factor>-1</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>needle2</object-name>
+    <condition>
+      <property>systems/electrical/outputs/gyro_comp</property>
+      <not>
+        <property>instrumentation/magnetic-compass/adf-vor</property>
+      </not>
+    </condition>
+    <property>instrumentation/adf/indicated-bearing-deg</property>
+    <factor>-1</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+<!--
+  <animation>
+    <type>knob</type>
+    <object-name>avswitch</object-name>
+    <property>instrumentation/magnetic-compass/adf-vor</property>
+    <center>
+      <x-m> 0.007</x-m>
+      <y-m>-0.037</y-m>
+      <z-m> 0.037</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+    <factor>-82</factor>
+    <action>
+      <binding>
+        <command>property-toggle</command>
+        <property>instrumentation/magnetic-compass/adf-vor</property>
+      </binding>
+    </action>
+  </animation>
+-->
+
+<!--
+  <animation>
+    <name>NeedlesWithCard1</name>
+    <type>rotate</type>
+    <object-name>needle1</object-name>
+    <object-name>needle2</object-name>
+    <property>instrumentation/heading-indicator/indicated-heading-deg</property>
+    <factor>1</factor>
+    <axis>
+      <x>1</x>
+    </axis>
+  </animation>
+
+  <animation>
+    <name>NeedlesWithCard2</name>
+    <type>rotate</type>
+    <object-name>NeedlesWithCard1</object-name>
+    <property>instrumentation/heading-indicator/offset-deg</property>
+    <factor>1</factor>
+    <axis>
+      <x>-1</x>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>gyrobug</object-name>
+    <property>instrumentation/heading-indicator/indicated-heading-deg</property>
+    <factor>1</factor>
+    <axis>
+      <x>1</x>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>gyrobug</object-name>
+    <property>instrumentation/heading-indicator/offset-deg</property>
+    <factor>1</factor>
+    <axis>
+      <x>-1</x>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>gyrobug</object-name>
+    <property>sim/model/jrb-usn/gyro-heading-bug</property>
+    <factor>1</factor>
+    <axis>
+      <x>-1</x>
+    </axis>
+  </animation>
+-->
+
+</PropertyList>

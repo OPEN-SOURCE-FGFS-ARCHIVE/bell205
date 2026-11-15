@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <sim>
+    <model>
+      <livery>
+        <name type="string">Bundespolizei (insp.)</name>
+        <texture>Liveries/bundespolizei.png</texture>
+
+      
+      </livery>
+      <bell205>
+        <hoist-enabled>false</hoist-enabled>
+        <hoist-ext>false</hoist-ext>
+      </bell205>
+    </model>
+	<rendering>
+			<refl_correction type="string">-0.25</refl_correction>
+			<fresnel-factor>0.2</fresnel-factor>
+		</rendering>
+  </sim>
+
+</PropertyList>
+

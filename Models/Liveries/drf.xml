@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--by Sanni-->
+
+<PropertyList>
+
+  <sim>
+    <model>
+      <livery>
+        <name type="string">DRF (insp.)</name>
+        <texture>Liveries/drf.png</texture>
+
+      </livery>
+      <bell205>
+        <hoist-enabled>false</hoist-enabled>
+        <hoist-ext>false</hoist-ext>
+      </bell205>
+    </model>
+	<rendering>
+			<refl_correction type="string">-0.25</refl_correction>
+			<fresnel-factor>0.3</fresnel-factor>
+		</rendering>
+  </sim>
+
+</PropertyList>
+

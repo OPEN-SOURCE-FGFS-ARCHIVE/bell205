@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <path>landinglightcone.ac</path>
+
+  <nopreview/>
+
+  <effect>
+    <inherits-from>Effects/light-cone</inherits-from>
+    <object-name>Cone</object-name>
+    <nopreview/>
+  </effect>
+
+  <animation>
+    <type>select</type>
+    <object-name>Cone</object-name>
+    <object-name>Cone-texture</object-name>
+    <object-name>Light</object-name>
+    <condition>
+      <property>sim/multiplay/generic/int[2]</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>Cone</object-name>
+    <object-name>Cone-texture</object-name>
+    <object-name>Light</object-name>
+    <emission>
+      <red>  1.0</red>
+      <green>1.0</green>
+      <blue> 1.0</blue>
+    </emission>
+  </animation>
+
+</PropertyList>

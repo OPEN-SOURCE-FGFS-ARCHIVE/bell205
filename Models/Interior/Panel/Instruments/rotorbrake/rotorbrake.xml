@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+
+<PropertyList>
+
+  <path>rotorbrake.ac</path>
+
+  <animation>
+    <type>material</type>
+    <object-name>cylinder</object-name>
+    <object-name>lever</object-name>
+    <emission>
+      <red>  0.02</red>
+      <green>0.02</green>
+      <blue> 0.02</blue>
+    </emission> 
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <object-name>cylinder</object-name>
+    <object-name>lever</object-name>
+    <min-m>0</min-m>
+    <max-m>20</max-m>
+  </animation>
+
+  <animation>
+    <type>knob</type>
+    <object-name>lever</object-name>
+    <property>controls/rotor/brake</property>
+    <center>
+      <x-m>0.098</x-m>
+      <y-m>0.000</y-m>
+      <z-m>0.001</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+    <factor>-100</factor>
+    <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/rotor/brake</property>
+        <factor>0.02</factor>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <hovered>
+      <binding>
+        <command>set-tooltip</command>
+        <label>RotorBrake: %3d%%</label>
+        <tooltip-id>rotorbrake</tooltip-id>
+        <mapping>percent</mapping>
+        <property>/controls/rotor/brake</property>
+      </binding>
+    </hovered>
+  </animation>
+
+</PropertyList>

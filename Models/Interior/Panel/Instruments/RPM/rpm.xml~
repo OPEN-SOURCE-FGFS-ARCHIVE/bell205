@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <path>rpm.ac</path>
+
+  <effect>
+    <inherits-from>Aircraft/bell205/Models/Effects/reflectglasint-uber</inherits-from>
+    <object-name>vitre</object-name>
+  </effect>
+
+  <effect>
+    <condition>
+      <property>sim/rendering/rembrandt/enabled</property>
+    </condition>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>vitre</object-name>
+  </effect>
+
+  <animation>
+    <type>material</type>
+    <object-name>face</object-name>
+    <object-name>Lneedle</object-name>
+    <object-name>Rneedle</object-name>
+    <condition>
+      <property>systems/electrical/outputs/inst_panel_lights</property>
+    </condition>
+    <emission>
+      <factor-prop>controls/lighting/instltg/pilot</factor-prop>
+      <red>   0.1 </red>
+      <green> 0.1 </green>
+      <blue>  0.1 </blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <object-name>vitre</object-name>
+    <object-name>face</object-name>
+    <object-name>fond</object-name>
+    <object-name>Lneedle</object-name>
+    <object-name>Rneedle</object-name>
+    <object-name>visses</object-name>
+    <min-m>0</min-m>
+    <max-m>20</max-m>
+  </animation>
+  
+  <animation>
+    <type>rotate</type>
+    <object-name>Lneedle</object-name>
+    <property>sim/model/bell205/engine</property>
+    <interpolation>
+      <entry><ind> 0.0 </ind><dep>    0 </dep></entry> <!-- -165 -->
+      <entry><ind> 0.5 </ind><dep>  149 </dep></entry> <!--  -16 -->
+      <entry><ind> 0.7 </ind><dep>  209 </dep></entry> <!--   44 -->
+      <entry><ind> 0.9 </ind><dep>  271 </dep></entry> <!--  106 -->
+      <entry><ind> 1.0 </ind><dep>  301 </dep></entry> <!--  136 -->
+      <entry><ind> 1.2 </ind><dep>  330 </dep></entry> <!--  165 -->
+    </interpolation>
+    <axis>
+      <x> -1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>Rneedle</object-name>
+    <property>rotors/main/rpm</property>
+    <interpolation>
+      <entry><ind>   0 </ind><dep>    0 </dep></entry> <!--   0% -165 -->
+      <entry><ind>  97 </ind><dep>   89 </dep></entry> <!--  30%  -76 -->
+      <entry><ind> 162 </ind><dep>  149 </dep></entry> <!--       -16 -->
+      <entry><ind> 194 </ind><dep>  180 </dep></entry> <!--  60%   15 -->
+      <entry><ind> 227 </ind><dep>  209 </dep></entry> <!--        44 -->
+      <entry><ind> 259 </ind><dep>  240 </dep></entry> <!--  80%   75 -->
+      <entry><ind> 291 </ind><dep>  271 </dep></entry> <!--       106 -->
+      <entry><ind> 323 </ind><dep>  301 </dep></entry> <!-- 100%  136 -->
+      <entry><ind> 335 </ind><dep>  330 </dep></entry> <!--       165 -->
+    </interpolation>
+    <axis>
+      <x> -1 </x>
+      <y> 0 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+</PropertyList>

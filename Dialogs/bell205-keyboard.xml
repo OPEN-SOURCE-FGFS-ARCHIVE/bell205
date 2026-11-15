@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <key n="101">
+    <name>e</name>
+    <desc>Sprayer</desc>
+    <binding>
+      <command>property-toggle</command>
+      <property>sim/model/hide-sprayer</property>
+      <value>true</value>
+    </binding>
+  </key>
+
+  <key n="110">
+    <name>n/N</name>
+    <desc>Rotor brake</desc>
+    <binding>
+      <command>nasal</command>
+      <script>interpolate("/controls/rotor/brake", 1.0, 3)</script>
+    </binding>
+    <mod-up>
+      <binding>
+        <command>nasal</command>
+        <script>interpolate("/controls/rotor/brake", 0.0, 3)</script>
+      </binding>
+    </mod-up>
+  </key>
+
+  <key n="115">
+    <name>s</name>
+    <desc>Start Engine</desc>
+    <binding>
+      <command>nasal</command>
+      <script>setprop( "/controls/switches/starter", "true" );</script>
+    </binding>
+    <mod-up>
+      <binding>
+        <command>nasal</command>
+        <script>setprop( "/controls/switches/starter", "false" )</script>
+      </binding>
+    </mod-up>
+  </key>
+
+  <key n="76">
+    <name>L</name>
+    <desc>toggle landing light</desc>
+    <binding>
+      <command>property-toggle</command>
+      <property>/controls/switches/ldglt</property>
+    </binding>
+  </key>
+
+  <key n="108">
+    <name>l</name>
+    <desc>toggle search light</desc>
+    <binding>
+      <command>property-toggle</command>
+      <property>/controls/switches/sl</property>
+    </binding>
+  </key>
+
+  <!-- Search light movement -->
+  <key n="106">
+    <name>j</name>
+    <desc>move Search Light right</desc>
+    <repeatable type="bool">true</repeatable>
+    <binding>
+      <condition>
+        <property>/systems/electrical/outputs/search_light</property>
+      </condition>
+      <command>property-adjust</command>
+      <property>/instrumentation/searchlight/heading-deg</property>
+      <step>-1.0</step>
+      <min>-60</min>
+      <max> 60</max>
+      <wrap>false</wrap>
+    </binding>
+  </key>
+
+  <key n="74">
+    <name>J</name>
+    <desc>move Search Light left</desc>
+    <repeatable type="bool">true</repeatable>
+    <binding>
+      <condition>
+        <property>/systems/electrical/outputs/search_light</property>
+      </condition>
+      <command>property-adjust</command>
+      <property>/instrumentation/searchlight/heading-deg</property>
+      <step>1.0</step>
+      <min>-60</min>
+      <max> 60</max>
+      <wrap>false</wrap>
+    </binding>
+  </key>
+
+  <key n="107">
+    <name>k</name>
+    <desc>move Search Light down</desc>
+    <repeatable type="bool">true</repeatable>
+    <binding>
+      <condition>
+        <property>/systems/electrical/outputs/search_light</property>
+      </condition>
+      <command>property-adjust</command>
+      <property>/instrumentation/searchlight/elevation-deg</property>
+      <step>-1.0</step>
+      <min>-60</min>
+      <max> 12</max>
+      <wrap>false</wrap>
+    </binding>
+  </key>
+
+  <key n="75">
+    <name>K</name>
+    <desc>move Search Light up</desc>
+    <repeatable type="bool">true</repeatable>
+    <binding>
+      <condition>
+        <property>/systems/electrical/outputs/search_light</property>
+      </condition>
+      <command>property-adjust</command>
+      <property>/instrumentation/searchlight/elevation-deg</property>
+      <step>1.0</step>
+      <min>-60</min>
+      <max> 12</max>
+      <wrap>false</wrap>
+    </binding>
+  </key>
+
+  <key n="109">
+    <name>m</name>
+    <desc>center Search Light</desc>
+    <binding>
+      <command>nasal</command>
+      <script>lights.center_searchlight()</script>
+    </binding>
+  </key>
+
+  <key n="119">
+    <name>w</name>
+    <desc>Toggle Rescue</desc>
+    <binding>
+      <command>property-toggle</command>
+      <property>/sim/model/rescue</property>
+    </binding>
+  </key>
+
+  <key n="125">
+    <name>{</name>
+    <desc>Lift Winch</desc>
+    <repeatable type="bool">true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>/sim/multiplay/generic/float[13]</property>
+      <step type="double">-0.01</step>
+      <min>0.0</min>
+      <max>1</max>
+    </binding>
+  </key>
+
+  <key n="123">
+    <name>}</name>
+    <desc>Down Winch</desc>
+    <repeatable type="bool">true</repeatable>
+    <binding>
+      <command>property-adjust</command>
+      <property>/sim/multiplay/generic/float[13]</property>
+      <step type="double">0.01</step>
+      <min>0.0</min>
+      <max>1</max>
+    </binding>
+  </key>
+
+<!--  <key n="77">
+    <name>M</name>
+    <binding>
+    </binding>
+  </key> -->
+
+</PropertyList>

@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <path>controls.ac</path>
+
+  <animation>
+    <type>material</type>
+    <object-name>ldglt_base</object-name>
+    <object-name>ldglt_switch</object-name>
+    <object-name>ldgltext_base</object-name>
+    <object-name>ldgltext_switch</object-name>
+    <object-name>sl_base</object-name>
+    <object-name>sl_switch</object-name>
+    <condition>
+      <property>systems/electrical/outputs/inst_panel_lights</property>
+    </condition>
+    <emission>
+      <factor-prop>controls/lighting/instltg/pilot</factor-prop>
+      <red>  0.1 </red>
+      <green>0.1</green>
+      <blue> 0.1</blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <object-name>ldglt_base</object-name>
+    <object-name>ldglt_switch</object-name>
+    <object-name>ldgltext_base</object-name>
+    <object-name>ldgltext_switch</object-name>
+    <object-name>sl_base</object-name>
+    <object-name>sl_switch</object-name>
+    <object-name>stickgrippilot</object-name>
+    <object-name>gripheadpilot</object-name>
+    <object-name>rightpedalpilot</object-name>
+    <object-name>leftpedalpilot</object-name>
+    <object-name>collectivestickpilot</object-name>
+    <object-name>collectiveheadpilot</object-name>
+    <object-name>search_cont</object-name>
+    <object-name>twistgrippilot</object-name>
+    <object-name>leatherpilot</object-name>
+    <object-name>collectiveheadcopilot</object-name>
+    <object-name>collectivestickcopilot</object-name>
+    <object-name>leatherpilot</object-name>
+    <object-name>leftpedalcopilot</object-name>
+    <object-name>rightpedalcopilot</object-name>
+    <object-name>stickgripcopilot</object-name>
+    <object-name>switchcopilot_base</object-name>
+    <object-name>switchcopilot_switch</object-name>
+    <min-m>0</min-m>
+    <max-m>200</max-m>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>stickgrippilot</object-name>
+    <object-name>gripheadpilot</object-name>
+    <property>controls/flight/elevator</property>
+    <factor>9</factor>
+    <offset-deg>-5</offset-deg>
+    <center>
+      <x-m> 0.0037</x-m>
+      <y-m> 0.5048</y-m>
+      <z-m>-0.5134</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>stickgrippilot</object-name>
+    <object-name>gripheadpilot</object-name>
+    <property>controls/flight/aileron</property>
+    <factor>7</factor>
+    <offset>-0.71</offset>
+    <center>
+      <x-m> 0.0037</x-m>
+      <y-m> 0.5048</y-m>
+      <z-m>-0.5134</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>stickgripcopilot</object-name>
+    <property>controls/flight/elevator</property>
+    <factor>9</factor>
+    <offset-deg>-5</offset-deg>
+    <center>
+      <x-m> 0.0037</x-m>
+      <y-m>-0.5048</y-m>
+      <z-m>-0.5134</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>stickgripcopilot</object-name>
+    <property>controls/flight/aileron</property>
+    <factor>7</factor>
+    <offset>-0.71</offset>
+    <center>
+      <x-m> 0.0037</x-m>
+      <y-m>-0.5048</y-m>
+      <z-m>-0.5134</z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+<!-- pedals -->
+  <animation>
+    <type>rotate</type>
+    <object-name>rightpedalpilot</object-name>
+    <object-name>rightpedalcopilot</object-name>
+    <property>controls/flight/rudder</property>
+    <factor>20</factor>
+    <offset>0</offset>
+    <center>
+      <x-m>-0.3927</x-m>
+      <y-m> 0.0000</y-m>
+      <z-m>-0.5087</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>-1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>leftpedalpilot</object-name>
+    <object-name>leftpedalcopilot</object-name>
+    <property>controls/flight/rudder</property>
+    <factor>20</factor>
+    <offset>0</offset>
+    <center>
+      <x-m>-0.3927</x-m>
+      <y-m> 0.0000</y-m>
+      <z-m>-0.5087</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+<!-- collective -->
+  <animation>
+    <type>rotate</type>
+    <object-name>collectivestickpilot</object-name>
+    <object-name>collectiveheadpilot</object-name>
+    <object-name>ldglt_base</object-name>
+<!--    <object-name>ldglt_plane</object-name> -->
+    <object-name>ldglt_switch</object-name>
+    <object-name>ldgltext_base</object-name>
+<!--    <object-name>ldgltext_planelower</object-name>
+    <object-name>ldgltext_planeupper</object-name> -->
+    <object-name>ldgltext_switch</object-name>
+    <object-name>search_cont</object-name>
+    <object-name>sl_base</object-name>
+<!--    <object-name>sl_planelower</object-name>
+    <object-name>sl_planeupper</object-name> -->
+    <object-name>sl_switch</object-name>
+    <object-name>twistgrippilot</object-name>
+    <object-name>leatherpilot</object-name>
+    <object-name>collectiveheadcopilot</object-name>
+    <object-name>collectivestickcopilot</object-name>
+    <object-name>leathercopilot</object-name>
+    <object-name>switchcopilot_base</object-name>
+    <object-name>switchcopilot_switch</object-name>
+    <property>controls/engines/engine/throttle</property>
+    <factor>-17.5</factor>
+    <offset>45</offset>
+    <center>
+      <x-m>  0.5519 </x-m>
+      <y-m>  0.1940 </y-m>
+      <z-m> -0.5085 </z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+<!-- landing light switch -->
+  <animation>
+    <type>knob</type>
+    <object-name>ldglt_switch</object-name>
+    <property>controls/switches/ldglt</property>
+    <center>
+      <x-m>0.155</x-m>
+      <y-m>0.000</y-m>
+      <z-m>0.099</z-m>
+    </center>
+    <axis>
+      <x> 0</x>
+      <y>-1</y>
+      <z> 0</z>
+    </axis>
+    <factor>15</factor>
+    <action>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/switches/ldglt</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
+    </action>
+  </animation>
+
+<!--  <animation>
+    <type>knob</type>
+    <object-name>ldgltext_switch</object-name>
+    <property>controls/switches/ldgltext</property>
+    <center>
+      <x-m>0.171</x-m>
+      <y-m>0.242</y-m>
+      <z-m>0.047</z-m>
+    </center>
+    <axis>
+      <x> 0</x>
+      <y>-1</y>
+      <z> 0</z>
+    </axis>
+    <factor>12.5</factor>
+    <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/switches/ldgltext</property>
+        <min>-1</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
+    </action>
+    </animation> -->
+
+<!-- search light switch -->
+  <animation>
+    <type>knob</type>
+    <object-name>sl_switch</object-name>
+    <property>controls/switches/search_light</property>
+    <center>
+      <x-m>0.155</x-m>
+      <y-m>0.000</y-m>
+      <z-m>0.099</z-m>
+    </center>
+    <axis>
+      <x> 0</x>
+      <y>-1</y>
+      <z> 0</z>
+    </axis>
+    <factor>12.5</factor>
+    <action>
+      <binding>
+        <command>property-toggle</command>
+       <property>controls/switches/search_light</property>
+<!--       <command>property-adjust</command>
+       <property>controls/switches/search_light</property>
+       <min>-1</min>
+       <max> 1</max>
+       <wrap>false</wrap> -->
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>sim/sound/click</property>
+      </binding>
+    </action>
+  </animation>
+
+</PropertyList>

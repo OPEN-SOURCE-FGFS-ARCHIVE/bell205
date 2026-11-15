@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <adf>
+    <power-btn type="bool">false</power-btn>
+    <frequencies>
+      <freqbandselect type="int">0</freqbandselect>
+      <freqpos type="int">5670</freqpos> <!-- 379Khz -->
+    </frequencies>
+  </adf>
+
+  <comm-radio>
+    <name>comm</name>
+    <number>0</number>
+  </comm-radio>
+
+  <comm-radio>
+    <name>comm</name>
+    <number>1</number>
+  </comm-radio>
+
+  <gsdi>
+    <serviceable type="bool">true</serviceable>
+    <enabled type="bool">true</enabled>
+  </gsdi>
+
+  <marker-beacon>
+    <power-btn type="bool">false</power-btn>
+  </marker-beacon>
+
+  <nav>
+    <frequencies>
+      <selected-khz type="int">0</selected-khz>
+    </frequencies>
+  </nav>
+
+  <searchlight>
+    <heading-deg type="int">0</heading-deg>
+    <pitch-deg type="int">0</pitch-deg>
+  </searchlight>
+
+  <turn-indicator>
+    <name>turn-indicator</name>
+    <number>0</number>
+  </turn-indicator>
+
+  <wiper>
+    <pos type="int">0</pos>
+  </wiper>
+
+</PropertyList>

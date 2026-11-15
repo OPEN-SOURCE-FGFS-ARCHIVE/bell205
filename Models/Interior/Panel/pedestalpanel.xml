@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>Aircraft/bell205/Models/Interior/Panel/pedestalpanel.ac</path>
+
+  <animation>
+    <type>material</type>
+    <object-name>pedestal_panel</object-name>
+    <emission>
+      <red>  0.01</red>
+      <green>0.01</green>
+      <blue> 0.01</blue>
+    </emission>
+  </animation>
+
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/panels/ac_circuit_breaker_panel/ac_circuit_breaker_panel.xml</path>
+    <offsets>
+      <x-m>-0.070</x-m>
+      <y-m> 0.139</y-m>
+      <z-m>-0.500</z-m>
+      <heading-deg>90</heading-deg>
+      <pitch-deg>-8.5</pitch-deg>
+    </offsets>
+  </model>
+
+<!-- Instruments -->
+<!-- left side -->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/arc54/arc54.xml</path>
+    <offsets>
+      <x-m>-0.133</x-m>
+      <y-m>-0.117</y-m>
+      <z-m>-0.029</z-m>
+      <pitch-deg>13</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/apx72/apx72.xml</path>
+    <offsets>
+      <x-m>-0.0315</x-m>
+      <y-m>-0.1170</y-m>
+      <z-m>-0.0525</z-m>
+      <pitch-deg>13</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/arn83/arn83.xml</path>
+    <offsets>
+      <x-m> 0.075</x-m>
+      <y-m>-0.117</y-m>
+      <z-m>-0.077</z-m>
+      <pitch-deg>13</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/arn82/arn82.xml</path>
+    <offsets>
+      <x-m> 0.146</x-m>
+      <y-m>-0.117</y-m>
+      <z-m>-0.094</z-m>
+      <pitch-deg>13</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/arc134/arc134.xml</path>
+    <offsets>
+      <x-m> 0.215</x-m>
+      <y-m>-0.117</y-m>
+      <z-m>-0.110</z-m>
+      <pitch-deg>13</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/arc134/arc134_2.xml</path>
+    <offsets>
+      <x-m> 0.290</x-m>
+      <y-m>-0.117</y-m>
+      <z-m>-0.128</z-m>
+      <pitch-deg>13</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/c6533/c6533cp.xml</path>
+    <offsets>
+      <x-m> 0.362</x-m>
+      <y-m>-0.117</y-m>
+      <z-m>-0.145</z-m>
+      <pitch-deg>13</pitch-deg>
+    </offsets>
+  </model>
+
+<!-- right side -->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/panels/chip_det_panel/chip_det_panel.xml</path>
+    <offsets>
+      <x-m>-0.140</x-m>
+      <y-m> 0.034</y-m>
+      <z-m>-0.027</z-m>
+      <pitch-deg>13</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/panels/caution_panel/caution_panel.xml</path>
+    <offsets>
+      <x-m>-0.059</x-m>
+      <y-m> 0.034</y-m>
+      <z-m>-0.046</z-m>
+      <pitch-deg>13</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/panels/engine_panel/engine_panel.xml</path>
+    <offsets>
+      <x-m> 0.039</x-m>
+      <y-m> 0.034</y-m>
+      <z-m>-0.069</z-m>
+      <pitch-deg>13</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/arc51bx/arc51bx.xml</path>
+    <offsets>
+      <x-m> 0.148</x-m>
+      <y-m> 0.034</y-m>
+      <z-m>-0.095</z-m>
+      <pitch-deg>13</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/c6533/c6533.xml</path>
+    <offsets>
+      <x-m> 0.245</x-m>
+      <y-m> 0.034</y-m>
+      <z-m>-0.117</z-m>
+      <pitch-deg>13</pitch-deg>
+    </offsets>
+  </model>
+
+<!-- vents pilot -->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/vents/vent1.xml</path>
+    <offsets>
+      <x-m>  0.110 </x-m>
+      <y-m>  0.113 </y-m>
+      <z-m> -0.160 </z-m>
+      <roll-deg>   90 </roll-deg>
+      <heading-deg>90 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/vents/vent1.xml</path>
+    <offsets>
+      <x-m>  0.040 </x-m>
+      <y-m>  0.113 </y-m>
+      <z-m> -0.160 </z-m>
+      <roll-deg>   90 </roll-deg>
+      <heading-deg>90 </heading-deg>
+    </offsets>
+  </model>
+
+<!-- vents copilot -->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/vents/vent1.xml</path>
+    <offsets>
+      <x-m>  0.110 </x-m>
+      <y-m> -0.194 </y-m>
+      <z-m> -0.160 </z-m>
+      <roll-deg>    90 </roll-deg>
+      <heading-deg>270 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/vents/vent1.xml</path>
+    <offsets>
+      <x-m>  0.040 </x-m>
+      <y-m> -0.194 </y-m>
+      <z-m> -0.160 </z-m>
+      <roll-deg>    90 </roll-deg>
+      <heading-deg>270 </heading-deg>
+    </offsets>
+  </model>
+
+</PropertyList>

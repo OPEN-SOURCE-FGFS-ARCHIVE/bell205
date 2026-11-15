@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>interior.ac</path>
+
+  <animation>
+    <type>material</type>
+    <object-name>interieur</object-name>
+    <object-name>crewseat1</object-name>
+    <object-name>crewseat2</object-name>
+    <object-name>floor1</object-name>
+    <object-name>floor2</object-name>
+    <object-name>frontdoorlint</object-name>
+    <object-name>frontdoorrint</object-name>
+    <object-name>interieur</object-name>
+    <object-name>seat</object-name>
+    <object-name>sidedoorintr</object-name>
+    <object-name>sidedoorintl</object-name>
+    <object-name>slidedoorintr</object-name>
+    <object-name>slidedoorintl</object-name>
+    <object-name>wall</object-name>
+    <condition>
+      <and>
+        <property>systems/electrical/outputs/domelight</property>
+        <equals>
+          <property>controls/lighting/domelight</property>
+          <value>1</value>
+        </equals>
+      </and>
+    </condition>
+    <emission>
+      <red>  0.1</red>
+      <green>0.4</green>
+      <blue> 0.1</blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>interieur</object-name>
+    <object-name>floor1</object-name>
+    <object-name>floor2</object-name>
+    <object-name>frontdoorlint</object-name>
+    <object-name>frontdoorrint</object-name>
+    <object-name>sidedoorintr</object-name>
+    <object-name>sidedoorintl</object-name>
+    <object-name>slidedoorintr</object-name>
+    <object-name>slidedoorintl</object-name>
+    <object-name>seat</object-name>
+    <object-name>crewseat1</object-name>
+    <object-name>crewseat2</object-name>
+    <object-name>wall</object-name>
+    <condition>
+      <and>
+        <property>systems/electrical/outputs/domelight</property>
+        <equals>
+          <property>controls/lighting/domelight</property>
+          <value>-1</value>
+        </equals>
+      </and>
+    </condition>
+    <emission>
+      <red>  0.5</red>
+      <green>0.5</green>
+      <blue> 0.5</blue>
+    </emission>
+  </animation>
+
+  <effect>
+    <inherits-from>Aircraft/bell205/Models/Effects/greenreflectglas-uber</inherits-from>
+    <object-name>topglasint</object-name>
+  </effect>
+  
+  <effect>
+<!--    <inherits-from>Aircraft/bell205/Models/Effects/reflectglas-uber</inherits-from> -->
+    <inherits-from>Effects/glass</inherits-from>
+    <object-name>frontdoorglasleftint</object-name>
+    <object-name>frontdoorglasrightint</object-name>
+    <object-name>sidedoorglasleftint</object-name>
+    <object-name>sidedoorglasrightint</object-name>
+    <object-name>slidedoorglasleftint</object-name>
+    <object-name>slidedoorglasrightint</object-name>
+    <object-name>windshieldint</object-name>
+    <object-name>bottomglasint</object-name>
+  </effect>
+
+  <effect>
+    <condition>
+      <property>sim/rendering/rembrandt/enabled</property>
+    </condition>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>frontdoorglasleftint</object-name>
+    <object-name>frontdoorglasrightint</object-name>
+    <object-name>sidedoorglasleftint</object-name>
+    <object-name>sidedoorglasrightint</object-name>
+    <object-name>slidedoorglasleftint</object-name>
+    <object-name>slidedoorglasrightint</object-name>
+    <object-name>windshieldint</object-name>
+    <object-name>topglasint</object-name>
+    <object-name>bottomglasint</object-name>
+  </effect>
+
+<!-- Pilot -->
+  <model>
+  <name>pilot1</name>
+    <path>Aircraft/bell205/Models/Pilot/female_pilot.xml</path>
+    <offsets>
+      <x-m>-6.559</x-m>
+      <y-m> 0.505</y-m>
+      <z-m>-0.710</z-m>
+    </offsets>
+  </model>
+
+  <model>
+  <name>pilot2</name>
+    <path>Aircraft/bell205/Models/Pilot/general_pilot.xml</path>
+    <offsets>
+      <x-m>-6.550</x-m>
+      <y-m> 0.505</y-m>
+      <z-m>-0.700</z-m>
+    </offsets>
+  </model>
+  
+   <animation>
+        <type>select</type>
+       
+     <object-name>pilot1</object-name>
+ <object-name>pilot2</object-name>
+		<condition>
+            <not>
+            <property>sim/current-view/internal</property>
+            </not>
+        </condition>
+    </animation>
+
+  <!-- Panel -->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/panel.xml</path>
+    <offsets>
+      <x-m> -6.999 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.785 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Overhead Panel -->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/overheadpanel.xml</path>
+    <offsets>
+      <x-m> -6.700 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.123 </z-m>
+      <roll-deg> 180 </roll-deg>
+      <pitch-deg> 5 </pitch-deg>
+    </offsets>
+  </model>
+
+  <!-- Pedestal Panel -->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/pedestalpanel.xml</path>
+    <offsets>
+      <x-m>-6.999</x-m>
+      <y-m> 0.000</y-m>
+      <z-m>-0.785</z-m>
+    </offsets>
+  </model>
+
+  <!-- Rotor Brake -->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/rotorbrake/rotorbrake.xml</path>
+    <offsets>
+      <x-m>-6.700</x-m>
+      <y-m> 0.240</y-m>
+      <z-m> 0.075</z-m>
+      <heading-deg>180</heading-deg>
+      <pitch-deg>5</pitch-deg>
+    </offsets>
+  </model>
+
+  <!-- Upper Vents -->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/vents/vent1.xml</path>
+    <offsets>
+      <x-m>-6.900</x-m>
+      <y-m> 0.250</y-m>
+      <z-m> 0.102</z-m>
+      <pitch-deg>85</pitch-deg>
+      <roll-deg>-5</roll-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/vents/vent1.xml</path>
+    <offsets>
+      <x-m>-6.900</x-m>
+      <y-m>-0.250</y-m>
+      <z-m> 0.102</z-m>
+      <pitch-deg>95</pitch-deg>
+      <roll-deg>-5</roll-deg>
+      <heading-deg>180</heading-deg>
+    </offsets>
+  </model>
+
+  <!-- Hoist -->
+  <model>
+    <path>Aircraft/bell205/Models/Effects/hoist/inthoist.xml</path>
+    <offsets>
+      <x-m>-4.82</x-m>
+      <y-m> 0.80</y-m>
+      <z-m>-1.32</z-m>
+    </offsets>
+  </model>
+
+  <!-- Left Front Door -->
+  <animation>
+    <name>IntLeftFrontDoor</name>
+    <object-name>frontdoorlint</object-name>
+    <object-name>frontdoorglasleftint</object-name>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>IntLeftFrontDoor</object-name>
+    <property>sim/multiplay/generic/float[2]</property>
+    <factor>-80</factor>
+    <axis>
+      <x1-m>-7.284</x1-m>
+      <y1-m>-0.853</y1-m>
+      <z1-m>-1.285</z1-m>
+      <x2-m>-7.288</x2-m>
+      <y2-m>-0.887</y2-m>
+      <z2-m>-0.777</z2-m>
+    </axis>
+  </animation>
+ 
+<!-- Right Front Door -->
+  <animation>
+    <name>IntRightFrontDoor</name>
+    <object-name>frontdoorrint</object-name>
+    <object-name>frontdoorglasrightint</object-name>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>IntRightFrontDoor</object-name>
+    <property>sim/multiplay/generic/float[1]</property>
+    <factor>80</factor>
+    <axis>
+      <x1-m>-7.284</x1-m>
+      <y1-m> 0.853</y1-m>
+      <z1-m>-1.285</z1-m>
+      <x2-m>-7.288</x2-m>
+      <y2-m> 0.887</y2-m>
+      <z2-m>-0.777</z2-m>
+    </axis>
+  </animation>
+ 
+<!-- Left Door -->
+  <animation>
+    <name>IntLeftDoor</name>
+    <object-name>sidedoorintl</object-name>
+    <object-name>sidedoorglasleftint</object-name>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>IntLeftDoor</object-name>
+    <property>sim/multiplay/generic/float[4]</property>
+    <factor>-80</factor>
+    <center>
+      <x-m>-6.107</x-m>
+      <y-m>-1.120</y-m>
+      <z-m>-0.608</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+ 
+<!-- Right Door -->
+  <animation>
+    <name>IntRightDoor</name>
+    <object-name>sidedoorintr</object-name>
+    <object-name>sidedoorglasrightint</object-name>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>IntRightDoor</object-name>
+    <property>sim/multiplay/generic/float[3]</property>
+    <factor>80</factor>
+    <center>
+      <x-m>-6.107</x-m>
+      <y-m> 1.120</y-m>
+      <z-m>-0.608</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+ 
+<!-- Left Slide Door -->
+  <animation>
+    <name>IntLeftSlide</name>
+    <object-name>slidedoorintl</object-name>
+    <object-name>slidedoorglasleftint</object-name>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>IntLeftSlide</object-name>
+    <property>sim/multiplay/generic/float[6]</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep> 0.000</dep></entry>
+      <entry><ind>0.1</ind><dep>-0.075</dep></entry>
+      <entry><ind>1.0</ind><dep>-0.170</dep></entry>
+    </interpolation>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>IntLeftSlide</object-name>
+    <property>sim/multiplay/generic/float[6]</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep> 0</dep></entry>
+      <entry><ind>0.1</ind><dep> 0</dep></entry>
+      <entry><ind>1.0</ind><dep>15</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-5.656</x-m>
+      <y-m> 6.182</y-m>
+      <z-m>-0.789</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+
+<!-- Right Slide Door -->
+  <animation>
+    <name>IntRightSlide</name>
+    <object-name>slidedoorintr</object-name>
+    <object-name>slidedoorglasrightint</object-name>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>IntRightSlide</object-name>
+    <property>sim/multiplay/generic/float[5]</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>0.000</dep></entry>
+      <entry><ind>0.1</ind><dep>0.075</dep></entry>
+      <entry><ind>1.0</ind><dep>0.170</dep></entry>
+    </interpolation>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>IntRightSlide</object-name>
+    <property>sim/multiplay/generic/float[5]</property>
+    <interpolation>
+      <entry><ind>0.0</ind><dep>  0</dep></entry>
+      <entry><ind>0.1</ind><dep>  0</dep></entry>
+      <entry><ind>1.0</ind><dep>-15</dep></entry>
+    </interpolation>
+    <center>
+      <x-m>-5.656</x-m>
+      <y-m>-6.182</y-m>
+      <z-m>-0.789</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+
+</PropertyList>

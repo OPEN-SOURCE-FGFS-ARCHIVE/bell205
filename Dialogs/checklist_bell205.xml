@@ -1,0 +1,497 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+<!-- Before Starting Engine -->
+  <checklist>
+    <title>Before Starting Engine</title>
+    <page>
+      <item>
+        <name>Main Key</name>
+        <value>ON</value>
+        <condition>
+          <equals>
+            <property>controls/switches/main_key</property>
+            <value>true</value>
+          </equals>
+        </condition>
+<!--        <marker>
+          <x-m>-7.06</x-m>
+          <y-m> 0.50</y-m>
+          <z-m>-0.56</z-m>
+          <scale>10.0</scale>
+        </marker> -->
+        <binding>
+          <command>property-assign</command>
+          <property>controls/switches/main_key</property>
+          <value>true</value>
+        </binding>
+      </item>
+
+      <item>
+        <name>Starter-Generator</name>
+        <value>Start</value>
+        <condition>
+          <equals>
+            <property>/controls/switches/startergen</property>
+            <value>false</value>
+          </equals>
+        </condition>
+        <binding>
+          <command>property-assign</command>
+          <property>controls/switches/startergen</property>
+          <value>false</value>
+        </binding>
+      </item>
+
+      <item>
+        <name>Non Essential Bus</name>
+        <value>Normal On</value>
+        <condition>
+          <equals>
+            <property>controls/switches/nonessbus</property>
+            <value>true</value>
+          </equals>
+        </condition>
+        <binding>
+          <command>property-assign</command>
+          <property>controls/switches/nonessbus</property>
+          <value>true</value>
+        </binding>
+      </item>
+
+      <item>
+        <name>Main Generator Switch</name>
+        <value>ON and covered</value>
+        <condition>
+          <and>
+            <equals>
+              <property>controls/switches/main_gen</property>
+              <value>1</value>
+            </equals>
+            <equals>
+              <property>controls/switches/maingenclutchguard</property>
+              <value>false</value>
+            </equals>
+          </and>
+        </condition>
+        <binding>
+          <command>property-assign</command>
+          <property>controls/switches/main_gen</property>
+          <value>true</value>
+        </binding>
+        <binding>
+          <command>property-assign</command>
+          <property>controls/switches/maingenclutchguard</property>
+          <value>false</value>
+        </binding>
+      </item>
+
+      <item>
+        <name>Inverter</name>
+        <value>OFF</value>
+        <condition>
+          <equals>
+            <property>controls/switches/invtr</property>
+            <value>false</value>
+          </equals>
+        </condition>
+        <binding>
+          <command>property-assign</command>
+          <property>controls/switches/invtr</property>
+          <value>0</value>
+        </binding>
+      </item>
+
+      <item>
+        <name>Low RPM Switch</name>
+        <value>OFF</value>
+        <condition>
+          <equals>
+            <property>controls/switches/lowrpmaudio</property>
+            <value>false</value>
+          </equals>
+        </condition>
+        <binding>
+          <command>property-assign</command>
+          <property>controls/switches/lowrpmaudio</property>
+          <value>false</value>
+        </binding>
+      </item>
+
+      <item>
+        <name>Anti Collision Light</name>
+        <value>ON</value>
+        <condition>
+          <equals>
+            <property>controls/switches/anticoll_lights</property>
+            <value>true</value>
+          </equals>
+        </condition>
+        <binding>
+          <command>property-toggle</command>
+          <property>controls/switches/anticoll_lights</property>
+          <value>true</value>
+        </binding>
+      </item>
+
+      <item>
+        <name>Rotor Brake</name>
+        <value>Release</value>
+        <condition>
+          <equals>
+            <property>controls/rotor/brake</property>
+            <value>0</value>
+          </equals>
+        </condition>
+      </item>
+    </page>
+  </checklist>
+
+<!-- Starting Engine -->
+  <checklist>
+    <title>Starting Engine</title>
+
+    <item>
+      <name>Battery Switch</name>
+      <value>ON</value>
+      <condition>
+        <equals>
+          <property>controls/switches/battery</property>
+          <value>true</value>
+        </equals>
+      </condition>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/switches/battery</property>
+      </binding>
+    </item>
+
+    <item>
+      <name>Fire Detector</name>
+      <value>TEST</value>
+    </item>
+
+    <item>
+      <name>Caution Warning Lights</name>
+      <value>TEST and RESET</value>
+    </item>
+
+<!--    <item>
+      <name>RPM Warning Light</name>
+      <value>ON</value>
+    </item> -->
+
+    <item>
+      <name>Main Fuel</name>
+      <value>ON and covered</value>
+      <condition>
+        <and>
+          <equals>
+            <property>controls/switches/engine/mainfuel</property>
+            <value>true</value>
+          </equals>
+          <equals>
+            <property>controls/switches/engine/clutchguard</property>
+            <value>false</value>
+          </equals>
+        </and>
+      </condition>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/switches/engine/mainfuel</property>
+      </binding>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/switches/engine/clutchguard</property>
+      </binding>
+    </item>
+
+    <item>
+      <name>Start Fuel</name>
+      <value>ON</value>
+      <condition>
+        <equals>
+          <property>controls/switches/engine/startfuel</property>
+          <value>true</value>
+        </equals>
+      </condition>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/switches/engine/startfuel</property>
+        <value>true</value>
+      </binding>
+    </item>
+
+    <item>
+      <name>Start Switch</name>
+      <value>Trigger ( max 40 sec.)</value>
+    </item>
+
+    <item>
+      <name>Start Fuel Switch</name>
+      <value>OFF (at 400 C EGT)</value>
+    </item>
+
+    <item>
+      <name>Start Switch</name>
+      <value>RELEASE (40% Gas Producer / 56%-58% RPM / max. 760 C EGT)</value>
+    </item>
+
+    <item>
+      <name>Throttle</name>
+      <value>Stop at Flight Idle (Gas Producer 56%-58%)</value>
+    </item>
+
+  </checklist>
+
+
+<!-- Engine Runup -->
+  <checklist>
+    <title>Engine Runup</title>
+
+    <item>
+      <name>Radios, ICS</name>
+      <value>ON, as desired</value>
+    </item>
+
+    <item>
+      <name>Inverter</name>
+      <value>MAIN ON</value>
+      <condition>
+        <equals>
+          <property>controls/switches/invtr</property>
+          <value>1</value>
+        </equals>
+      </condition>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/switches/invtr</property>
+        <value>1</value>
+      </binding>
+    </item>
+
+<!--    <item>
+      <name>Throttle</name>
+      <value>inc. to Flight Idle</value>
+    </item> -->
+
+    <item>
+      <name>Avionic Master Switch</name>
+      <value>ON</value>
+      <condition>
+        <equals>
+          <property>controls/switches/main_avionics</property>
+          <value>true</value>
+        </equals>
+      </condition>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/switches/main_avionics</property>
+      </binding>
+    </item>
+
+    <item>
+      <name>Fuel Gage</name>
+      <value>TEST</value> <!-- <200p and back -->
+    </item>
+
+    <item>
+      <name>low RPM Switch</name>
+      <value>AUDIO</value>
+      <condition>
+        <equals>
+          <property>controls/switches/lowrpmaudio</property>
+          <value>true</value>
+        </equals>
+      </condition>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/switches/lowrpmaudio</property>
+        <value>true</value>
+      </binding>
+    </item>
+
+    <item>
+      <name>Clock</name>
+      <value>SET</value>
+      <condition>
+        <equals>
+          <property>instrumentation/clock/chronometer-on</property>
+          <value>true</value>
+        </equals>
+      </condition>
+      <binding>
+        <command>nasal</command>
+        <script>chronograph.click()</script>
+      </binding>
+    </item>
+
+    <item>
+      <name>Ext. Lights</name>
+      <value>as desired (STEADY or FLASH)</value>
+      <condition>
+        <not-equals>
+          <property>controls/switches/extltsmode</property>
+          <value>0</value>
+        </not-equals>
+      </condition>
+    </item>
+
+  </checklist>
+
+
+  <checklist>
+    <title>Engine Shutdown</title>
+
+    <item>
+      <name>Collective</name>
+      <value>Full Down</value>
+      <condition>
+        <equals>
+          <property>controls/engines/engine/throttle</property>
+          <value>1</value>
+        </equals>
+      </condition>
+    </item>
+
+<!--    <item>
+      <name>Governor</name>
+      <value>dec to lowest RPM</name>
+    </item> -->
+
+<!--    <item>
+      <name>Throttle</name>
+      <value>Flight Idle (56%-58% Gas Producer)</value>
+    </item> -->
+
+    <item>
+      <name>Low RPM Switch</name>
+      <value>OFF</value>
+      <condition>
+        <equals>
+          <property>controls/switches/lowrpmaudio</property>
+          <value>false</value>
+        </equals>
+      </condition>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/switches/lowrpmaudio</property>
+        <value>false</value>
+      </binding>
+    </item>
+
+    <item>
+      <name>Starter Generator Switch</name>
+      <value>START</value>
+      <condition>
+        <property>controls/switches/startergen</property>
+        <value>true</value>
+      </condition>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/switches/startergen</property>
+      </binding>
+    </item>
+
+    <item>
+      <name>Ext. Lights</name>
+      <value>OFF</value>
+      <condition>
+        <equals>
+          <property>controls/switches/extltsmode</property>
+          <value>0</value>
+        </equals>
+      </condition>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/switches/extltsmode</property>
+        <value>0</value>
+      </binding>
+    </item>
+
+    <item>
+      <name>Main Fuel Switch</name>
+      <value>OFF</value>
+      <condition>
+        <equals>
+          <property>controls/switches/engine/mainfuel</property>
+          <value>false</value>
+        </equals>
+      </condition>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/switches/engine/mainfuel</property>
+      </binding>
+    </item>
+
+    <item>
+      <name>Radios, ICS</name>
+      <value>OFF</value>
+    </item>
+
+    <item>
+      <name>all electr. Switches (exc. Main Generator and Battery)</name>
+      <value>OFF</value>
+    </item>
+
+    <item>
+      <name>Rotor Brake (Rotor less than RPM 40% Flight)</name>
+      <value>ON</value>
+      <condition>
+        <equals>
+          <property>controls/rotor/brake</property>
+          <value>1</value>
+        </equals>
+      </condition>
+    </item>
+
+    <item>
+      <name>Battery Switch (Rotor RPM=0)</name>
+      <value>OFF</value>
+      <condition>
+        <equals>
+          <property>controls/switches/battery</property>
+          <value>false</value>
+        </equals>
+      </condition>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/switches/battery</property>
+      </binding>
+    </item>
+
+    <item>
+      <name>Main Generator</name>
+      <value>OFF</value>
+      <condition>
+        <equals>
+          <property>controls/switches/main_gen</property>
+          <value>0</value>
+        </equals>
+      </condition>
+      <binding>
+        <command>property-assign</command>
+        <property>controls/switches/main_gen</property>
+        <value>0</value>
+      </binding>
+    </item>
+
+    <item>
+      <name>Anti Collition Lights</name>
+      <value>OFF</value>
+      <condition>
+        <equals>
+          <property>controls/switches/anticoll_lights</property>
+          <value>false</value>
+        </equals>
+      </condition>
+      <binding>
+        <command>property-toggle</command>
+        <property>controls/switches/anticoll_lights</property>
+      </binding>
+    </item>
+
+  </checklist>
+
+</PropertyList>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>asi.ac</path>
+	
+  <effect>
+    <inherits-from>Aircraft/bell205/Models/Effects/reflectglasint-uber</inherits-from>
+    <object-name>vitre</object-name>
+  </effect>
+
+  <effect>
+    <condition>
+      <property>sim/rendering/rembrandt/enabled</property>
+    </condition>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>vitre</object-name>
+  </effect>
+
+  <animation>
+    <type>range</type>
+    <object-name>vitre</object-name>
+    <object-name>face</object-name>
+    <object-name>asi-needle1</object-name>
+    <object-name>fond</object-name>
+    <min-m>0</min-m>
+    <max-m>20</max-m>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>face</object-name>
+    <object-name>asi-needle1</object-name>
+    <condition>
+      <property>systems/electrical/outputs/inst_panel_lights</property>
+    </condition>
+    <emission>
+      <factor-prop>controls/lighting/instltg/pilot</factor-prop>
+      <red>   0.1 </red>
+      <green> 0.1 </green>
+      <blue>  0.1 </blue>
+    </emission>
+  </animation>
+	
+  <animation>
+    <type>rotate</type>
+    <object-name>asi-needle1</object-name>
+    <condition>
+      <property>systems/electrical/outputs/hsi</property>
+    </condition>
+    <property>instrumentation/airspeed-indicator/indicated-speed-kt</property>
+    <interpolation>
+      <entry><ind> -999 </ind><dep>   0 </dep></entry>
+      <entry><ind>    0 </ind><dep>   0 </dep></entry>
+      <entry><ind>   10 </ind><dep>  29 </dep></entry>
+      <entry><ind>   20 </ind><dep>  55 </dep></entry>
+      <entry><ind>   30 </ind><dep>  85 </dep></entry>
+      <entry><ind>   40 </ind><dep> 111 </dep></entry>
+      <entry><ind>   50 </ind><dep> 133 </dep></entry>
+      <entry><ind>   60 </ind><dep> 156 </dep></entry>
+      <entry><ind>   70 </ind><dep> 176 </dep></entry>
+      <entry><ind>   80 </ind><dep> 200 </dep></entry>
+      <entry><ind>   90 </ind><dep> 219 </dep></entry>
+      <entry><ind>  100 </ind><dep> 240 </dep></entry>
+      <entry><ind>  110 </ind><dep> 260 </dep></entry>
+      <entry><ind>  120 </ind><dep> 281 </dep></entry>
+      <entry><ind>  130 </ind><dep> 298 </dep></entry>
+      <entry><ind>  140 </ind><dep> 318 </dep></entry>
+      <entry><ind>  150 </ind><dep> 342 </dep></entry>
+      <entry><ind>  999 </ind><dep> 345 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+</PropertyList>
+

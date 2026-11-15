@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>ils.ac</path>
+
+  <effect>
+    <inherits-from>Aircraft/bell205/Models/Effects/reflectglasint-uber</inherits-from>
+    <object-name>vitre</object-name>
+  </effect>
+
+  <effect>
+    <condition>
+      <property>sim/rendering/rembrandt/enabled</property>
+    </condition>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>vitre</object-name>
+  </effect>
+
+  <animation>
+    <type>material</type>
+    <object-name>face</object-name>
+    <object-name>MarkerLight</object-name> 
+    <object-name>GSNeedle</object-name> 
+    <object-name>VORNeedle</object-name> 
+    <object-name>DirectionNeedle</object-name>
+    <object-name>GSFlag</object-name> 
+    <object-name>VORFlag</object-name> 
+    <object-name>Course001</object-name> 
+    <object-name>Course010</object-name> 
+    <object-name>Course100</object-name> 
+    <object-name>CourseButton</object-name>
+    <condition>
+      <property>systems/electrical/outputs/inst_panel_lights</property>
+    </condition>
+    <emission>
+      <factor-prop>controls/lighting/instltg/pilot</factor-prop>
+      <red>   0.1 </red>
+      <green> 0.1 </green>
+      <blue>  0.1 </blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <object-name>fond</object-name>
+    <object-name>face</object-name>
+    <object-name>MarkerLight</object-name> 
+    <object-name>GSNeedle</object-name> 
+    <object-name>VORNeedle</object-name> 
+    <object-name>DirectionNeedle</object-name>
+    <object-name>GSFlag</object-name> 
+    <object-name>VORFlag</object-name> 
+    <object-name>Course001</object-name> 
+    <object-name>Course010</object-name> 
+    <object-name>Course100</object-name> 
+    <object-name>CourseButton</object-name>
+    <object-name>vitre</object-name>
+    <min-m>0</min-m>
+    <max-m>20</max-m>
+  </animation>
+  
+
+  <animation>
+    <type>select</type>
+    <object-name>MarkerLight</object-name>
+    <condition>
+      <property>systems/electrical/outputs/marker_beacon</property>
+      <or>
+        <property>instrumentation/marker-beacon/inner</property>
+        <property>instrumentation/marker-beacon/middle</property>
+        <property>instrumentation/marker-beacon/outer</property>
+      </or>
+    </condition>
+  </animation>
+
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>Course001</object-name>
+    <property>instrumentation/nav/radials/selected-deg</property>
+    <factor>-0.1</factor>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>Course010</object-name>
+    <property>instrumentation/nav/radials/selected-deg</property>
+    <factor>-0.01</factor>
+    <step>10</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+
+  <animation>
+    <type>textranslate</type>
+    <object-name>Course100</object-name>
+    <property>instrumentation/nav/radials/selected-deg</property>
+    <factor>-0.001</factor>
+    <step>100</step>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+
+  <animation>
+    <type>knob</type>
+    <object-name>CourseButton</object-name>
+    <property>instrumentation/nav/radials/selected-deg</property>
+    <center>
+      <x-m> 0.0000</x-m>
+      <y-m>-0.0324</y-m>
+      <z-m>-0.0321</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+    <factor>1</factor>
+    <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/nav/radials/selected-deg</property>
+        <min>0</min>
+        <max>360</max>
+        <wrap>true</wrap>
+      </binding>
+    </action>
+  </animation>
+
+
+  <animation>
+    <type>select</type>
+    <object-name>GSFlag</object-name>
+    <condition>
+      <not>
+        <property>instrumentation/nav/gs-in-range</property>
+      </not>
+    </condition>
+  </animation>
+
+
+  <animation>
+    <type>translate</type>
+    <object-name>GSNeedle</object-name>
+    <property>instrumentation/nav/gs-needle-deflection</property>
+    <interpolation>
+      <entry><ind>-10.0</ind><dep>-0.05</dep></entry>
+      <entry><ind>  0.0</ind><dep> 0.0 </dep></entry>
+      <entry><ind> 10.0</ind><dep> 0.05</dep></entry>
+    </interpolation>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+
+
+  <animation>
+    <type>select</type>
+    <object-name>VORFlag</object-name>
+    <condition>
+      <not>
+        <property>instrumentation/nav/in-range</property>
+      </not>
+    </condition>
+  </animation>
+
+
+  <animation>
+    <type>translate</type>
+    <object-name>VORNeedle</object-name>
+    <property>instrumentation/nav/heading-needle-deflection</property>
+    <interpolation>
+      <entry><ind>-10.0</ind><dep>-0.018</dep></entry>
+      <entry><ind>  0.0</ind><dep> 0.0  </dep></entry>
+      <entry><ind> 10.0</ind><dep> 0.018</dep></entry>
+    </interpolation>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+
+  <animation>
+    <type>rotate</type>
+    <object-name>DirectionNeedle</object-name>
+    <property>autopilot/internal/nav1-heading-error-deg</property>
+    <factor>-1</factor>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+  </animation>
+
+</PropertyList>

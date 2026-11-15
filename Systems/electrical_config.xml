@@ -1,0 +1,930 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<PropertyList>
+
+  <electrical>
+
+<!-- Suppliers -->
+    <component>
+      <name type="string">Battery</name>
+      <kind type="string">battery</kind>
+      <volts type="float">24.4</volts>
+      <amps type="double">45</amps>
+      <prop type="string">systems/electrical/suppliers/battery</prop>
+    </component>
+
+    <component>
+      <name>Main Generator</name>
+      <kind>alternator</kind>
+      <volts type="float">28.85</volts>
+      <prop>systems/electrical/suppliers/generator</prop>
+      <source-prop>sim/model/bell205/engine</source-prop>
+      <source-min>0.6</source-min>
+    </component>
+
+    <component>
+      <name>Stby Generator</name>
+      <kind>alternator</kind>
+      <volts type="float">28.85</volts>
+      <prop>systems/electrical/suppliers/stbygenerator</prop>
+      <source-prop>sim/model/bell205/engine</source-prop>
+      <source-min>0.6</source-min>
+    </component>
+<!-- Suppliers -->
+
+
+<!-- Busses and Inverters-->
+    <component>
+      <name>Bus Battery</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/bus_battery</prop>
+    </component>
+
+    <component>
+      <name>Bus Main Generator</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/bus_maingenerator</prop>
+    </component>
+
+    <component>
+      <name>Primary Bus</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/primary_bus</prop>
+    </component>
+
+    <component>
+      <name>Bus Stby Generator</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/bus_stbygenerator</prop>
+    </component>
+
+    <connector>
+      <input>Battery</input>
+      <output>Bus Battery</output>
+      <switch>controls/circuit_breaker/batt_temp</switch>
+      <switch>controls/switches/main_key</switch>
+      <switch>controls/switches/battery</switch>
+    </connector>
+    <connector>
+      <input>Bus Battery</input>
+      <output>Primary Bus</output>
+    </connector>
+
+    <connector>
+      <input>Main Generator</input>
+      <output>Bus Main Generator</output>
+      <switch>controls/circuit_breaker/gen_bus_reset</switch>
+      <switch>controls/switches/main_gen</switch>
+    </connector>
+    <connector>
+      <input>Bus Main Generator</input>
+      <output>Primary Bus</output>
+    </connector>
+
+    <connector>
+      <input>Stby Generator</input>
+      <output>Bus Stby Generator</output>
+      <switch>controls/switches/startergen</switch>
+    </connector>
+    <connector>
+      <input>Bus Stby Generator</input>
+      <output>Primary Bus</output>
+    </connector>
+
+
+    <component>
+      <name>Essential Bus DC</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/essential_bus</prop>
+    </component>
+    <connector>
+      <input>Primary Bus</input>
+      <output>Essential Bus DC</output>
+    </connector>
+
+    <component>
+      <name>NonEssential Bus</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/nonessential_bus</prop>
+    </component>
+    <connector>
+      <input>Primary Bus</input>
+      <output>NonEssential Bus</output>
+    </connector>
+
+    <component>
+      <name>Avionics Bus</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/bus_avionics</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Avionics Bus</output>
+      <switch>controls/switches/main_avionics</switch>
+    </connector>
+
+    <component>
+      <name>Essential Bus AC 28V</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/essential_bus_ac28</prop>
+    </component>
+
+    <component>
+      <name>Essential Bus AC 115V</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/essential_bus_ac115</prop>
+    </component>
+
+
+    <component>
+      <name>Main Inverter</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/main_inverter</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Main Inverter</output>
+      <switch>controls/circuit_breaker/main_invtr_pwr</switch>
+      <switch>controls/circuit_breaker/invtr_cont</switch>
+      <switch>controls/switches/main_invtr</switch>
+    </connector>
+    <connector>
+      <input>Main Inverter</input>
+      <output>Essential Bus AC 28V</output>
+    </connector>
+    <connector>
+      <input>Main Inverter</input>
+      <output>Essential Bus AC 115V</output>
+    </connector>
+
+    <component>
+      <name>Spare Inverter</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/spare_inverter</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Spare Inverter</output>
+      <switch>controls/circuit_breaker/spare_invtr_pwr</switch>
+      <switch>controls/circuit_breaker/invtr_cont</switch>
+      <switch>controls/switches/spare_invtr</switch>
+    </connector>
+    <connector>
+      <input>Spare Inverter</input>
+      <output>Essential Bus AC 28V</output>
+    </connector>
+    <connector>
+      <input>Spare Inverter</input>
+      <output>Essential Bus AC 115V</output>
+    </connector>
+<!-- Busses and Inverters-->
+
+
+<!-- Engine -->
+
+    <component>
+      <name>Force Trim</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/force_trim</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Force Trim</output>
+      <switch>controls/circuit_breaker/force_trim</switch>
+      <switch>controls/switches/forcetrim</switch>
+    </connector>
+
+<!--
+    <component>
+      <name>Fuel Aux Left</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/fuel_boost_left</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Fuel Aux Left</output>
+      <switch>controls/circuit_breaker/fuel_boost_left</switch>
+      <switch>controls/switches/engine/intauxfuelleft</switch>
+    </connector>
+
+
+    <component>
+      <name>Fuel Aux Right</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/fuel_boost_right</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Fuel Aux Right</output>
+      <switch>controls/circuit_breaker/fuel_boost_right</switch>
+      <switch>controls/switches/engine/intauxfuelright</switch>
+    </connector>
+-->
+
+    <component>
+      <name>Fuel Pump</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/fuel_pump</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Fuel Pump</output>
+      <switch>controls/circuit_breaker/fuel_valve</switch>
+      <switch>controls/circuit_breaker/fuel_transfer_pump</switch>
+      <switch>controls/switches/engine/mainfuel</switch>
+    </connector>
+
+<!--
+    <component>
+      <name>Hydro Control</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/hydro_cont</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Hydro Control</output>
+      <switch>controls/circuit_breaker/hyd_cont</switch>
+      <switch>controls/switches/hydcont</switch>
+    </connector>
+-->
+
+    <component>
+      <name>Start Fuel Pump</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/start_fuel_pump</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Start Fuel Pump</output>
+      <switch>controls/circuit_breaker/fuel_valve</switch>
+      <switch>controls/circuit_breaker/fuel_boost_left</switch>
+      <switch>controls/circuit_breaker/fuel_boost_right</switch>
+      <switch>controls/switches/engine/startfuel</switch>
+    </connector>
+
+
+    <component>
+      <name>Starter Generator</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/starter_generator</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Starter Generator</output>
+      <switch>controls/circuit_breaker/starter_relay</switch>
+      <switch>controls/switches/startergen</switch>
+    </connector>
+
+
+    <component>
+      <name>Starter</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/starter</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Starter</output>
+      <switch>controls/circuit_breaker/starter_relay</switch>
+      <switch>controls/switches/starter</switch>
+    </connector>
+
+
+<!-- Lights -->
+    <component>
+      <name>Instrument Panel Lights</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/inst_panel_lights</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Instrument Panel Lights</output>
+      <switch>controls/circuit_breaker/inst_panel_lights</switch>
+    </connector>
+
+    <component>
+      <name>Console Ped Lights</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/console_ped_lights</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Console Ped Lights</output>
+      <switch>controls/circuit_breaker/console_ped_lights</switch>
+    </connector>
+
+    <component>
+      <name>Landing Light</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/ldglt</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Landing Light</output>
+      <switch>controls/circuit_breaker/ldg_light_pwr</switch>
+      <switch>controls/circuit_breaker/ldg_search_light_cont</switch>
+<!--      <switch>controls/switches/ldgltext</switch> -->
+      <switch>controls/switches/ldglt</switch>
+    </connector>
+
+    <component>
+      <name>Search Light</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/search_light</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Search Light</output>
+      <switch>controls/circuit_breaker/search_light_pwr</switch>
+      <switch>controls/circuit_breaker/ldg_search_light_cont</switch>
+      <switch>controls/switches/search_light</switch>
+    </connector>
+
+    <component>
+      <name>Anti Coll Light</name>
+      <kind>output</kind> 
+      <prop>systems/electrical/outputs/anticoll_lights</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Anti Coll Light</output>
+      <switch>controls/circuit_breaker/anti_coll_light</switch>
+      <switch>controls/switches/anticoll_lights</switch>
+    </connector>
+
+    <component>
+      <name>Nav Light</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/nav_lights</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Nav Light</output>
+      <switch>controls/circuit_breaker/nav_lights</switch>
+      <switch>controls/switches/extltsmode</switch>
+    </connector>
+
+    <component>
+      <name>Dome Light</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/domelight</prop>
+    </component>
+    <connector>
+      <input>NonEssential Bus</input>
+      <output>Dome Light</output>
+      <switch>controls/lighting/domelight</switch>
+    </connector>
+
+
+<!--
+    <component>
+      <name>Map Lights</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/map_lights</prop>
+    </component>
+    <connector>
+      <input>Avionics Bus</input>
+      <output>Map Lights</output>
+      <switch>controls/switches/map_lights</switch>
+    </connector>
+
+    <component>
+      <name>Cabin Lights</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/cabin_lights</prop>
+-    </component>
+    <connector>
+      <input>Avionics Bus</input>
+      <output>Cabin Lights</output>
+      <switch>controls/switches/cabin_lights</switch>
+    </connector>
+-->
+
+
+    <!-- Warning Lights -->
+    <component>
+      <name>Fire Det</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/fire_det</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Fire Det</output>
+      <switch>controls/circuit_breaker/fire_det</switch>
+      <switch>controls/switches/fire_det</switch>
+    </connector>
+
+    <component>
+      <name>RPM Warn System</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/rpm_warn_system</prop>
+    </component>
+    <connector>
+      <input>Primary Bus</input>
+      <output>RPM Warn System</output>
+      <switch>controls/circuit_breaker/rpm_warn_system</switch>
+    </connector>
+
+    <component>
+      <name>Master Caution Warn</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/master_caution</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Master Caution Warn</output>
+      <switch>controls/switches/master_caution</switch>
+    </connector>
+
+    <!-- caution panel -->
+    <component>
+      <name>Engine Oil Press</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/warn/engine_oil_press</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Engine Oil Press</output>
+      <switch>controls/switches/warn/engine_oil_press</switch>
+    </connector>
+
+    <component>
+      <name>Engine Oil Filter</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/warn/eng_oil_filter</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Engine Oil Filter</output>
+      <switch>controls/switches/warn/eng_oil_filter</switch>
+    </connector>
+
+    <component>
+      <name>Engine Icing</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/warn/engine_icing</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Engine Icing</output>
+      <switch>controls/switches/warn/engine_icing</switch>
+    </connector>
+
+    <component>
+      <name>XMSN Oil Press</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/warn/xmsn_oil_press</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>XMSN Oil Press</output>
+      <switch>controls/switches/warn/xmsn_oil_press</switch>
+    </connector>
+
+    <component>
+      <name>Engine Ice Det</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/warn/engine_ice_det</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Engine Ice Det</output>
+      <switch>controls/switches/warn/engine_ice_det</switch>
+    </connector>
+
+    <component>
+      <name>XMSN Oil Hot</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/warn/xmsn_oil_hot</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>XMSN Oil Hot</output>
+      <switch>controls/switches/warn/xmsn_oil_hot</switch>
+    </connector>
+
+    <component>
+      <name>Engine De-Ice On</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/warn/engine_deice_on</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Engine De-Ice On</output>
+      <switch>controls/switches/warn/engine_deice_on</switch>
+    </connector>
+
+    <component>
+      <name>Hyd #1 Pressure</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/warn/hyd1_pressure</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Hyd #1 Pressure</output>
+      <switch>controls/switches/warn/hyd1_pressure</switch>
+    </connector>
+
+    <component>
+      <name>Left Fuel Boost</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/warn/fuel_boost_left</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Left Fuel Boost</output>
+      <switch>controls/switches/warn/fuel_boost_left</switch>
+    </connector>
+
+    <component>
+      <name>Hyd #2 Pressure</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/warn/hyd2_pressure</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Hyd #2 Pressure</output>
+      <switch>controls/switches/warn/hyd2_pressure</switch>
+    </connector>
+
+    <component>
+      <name>Right Fuel Boost</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/warn/fuel_boost_right</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Right Fuel Boost</output>
+      <switch>controls/switches/warn/fuel_boost_right</switch>
+    </connector>
+
+    <component>
+      <name>Inst Inverter</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/warn/inst_inverter</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Inst Inverter</output>
+      <switch>controls/switches/warn/inst_inverter</switch>
+    </connector>
+
+    <component>
+      <name>Eng Fuel Pump</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/warn/eng_fuel_pump</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Eng Fuel Pump</output>
+      <switch>controls/switches/warn/eng_fuel_pump</switch>
+    </connector>
+
+    <component>
+      <name>DC Generator</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/warn/dc_generator</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>DC Generator</output>
+      <switch>controls/switches/warn/dc_generator</switch>
+    </connector>
+
+    <component>
+      <name>Fuel Low Level</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/warn/fuel_low_level</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Fuel Low Level</output>
+      <switch>controls/switches/warn/fuel_low_level</switch>
+    </connector>
+
+    <component>
+      <name>Door Lock</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/warn/door_lock</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Door Lock</output>
+      <switch>controls/switches/warn/door_lock</switch>
+    </connector>
+
+    <component>
+      <name>Fuel Filter</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/warn/fuel_filter</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Fuel Filter</output>
+      <switch>controls/switches/warn/fuel_filter</switch>
+    </connector>
+
+    <component>
+      <name>Gov Emer</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/warn/gov_emer</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Gov Emer</output>
+      <switch>controls/switches/warn/gov_emer</switch>
+    </connector>
+
+    <component>
+      <name>Spare</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/warn/spare</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Spare</output>
+      <switch>controls/switches/warn/spare</switch>
+    </connector>
+<!-- Warning Lights -->
+
+
+<!-- Sounds -->
+    <component>
+      <name>Sounder</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/sounds/sounder</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Sounder</output>
+      <switch>controls/switches/sounds/sounder</switch>
+    </connector>
+<!-- Sounds -->
+
+
+<!-- Instruments -->
+    <component>
+      <name>ADF</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/adf</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>ADF</output>
+      <switch>controls/circuit_breaker/adf_rcvr</switch>
+      <switch>controls/switches/arn83/gainswitch</switch>
+    </connector>
+
+
+    <component>
+      <name>ALT</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/alt</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>ALT</output>
+    </connector>
+
+
+    <component>
+      <name>ATTD Pilot</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/attd_pilot</prop>
+    </component>
+    <connector>
+      <input>Essential Bus AC 115V</input>
+      <output>ATTD Pilot</output>
+      <switch>controls/circuit_breaker/attd_pilot_1</switch>
+      <switch>controls/circuit_breaker/attd_pilot_2</switch>
+    </connector>
+
+
+    <component>
+      <name>Door EGT Ind</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/door_egt_ind</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Door EGT Ind</output>
+      <switch>controls/circuit_breaker/door_egt_ind</switch>
+    </connector>
+
+
+    <component>
+      <name>Fuel Qty Indicator</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/fuel_indicator</prop>
+    </component>
+    <connector>
+      <input>Essential Bus AC 115V</input>
+      <output>Fuel Qty Indicator</output>
+      <switch>controls/circuit_breaker/fuel_qty</switch>
+    </connector>
+
+
+<!--    <component>
+      <name>FM COMM</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/fm_comm</prop>
+    </component>
+    <connector>
+      <input> Bus</input>
+      <output>FM COMM</output>
+      <switch>fm_arc-54</switch>
+    </connector>
+-->
+
+    <component>
+      <name>Gyro Comp</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/gyro_comp</prop>
+    </component>
+    <connector>
+      <input>Essential Bus AC 115V</input>
+      <output>Gyro Comp</output>
+      <switch>controls/circuit_breaker/gyro_cmps</switch>
+      <switch>controls/switches/main_avionics</switch>
+    </connector>
+
+
+    <component>
+      <name>HSI</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/hsi</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>HSI</output>
+      <switch>controls/switches/main_avionics</switch>
+    </connector>
+
+
+    <component>
+      <name>Marker Beacon</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/marker_beacon</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Marker Beacon</output>
+      <switch>controls/circuit_breaker/marker_beacon_nav</switch>
+      <switch>controls/switches/r1041/func</switch>
+    </connector>
+
+
+    <component>
+      <name>NAV COMM</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/nav</prop>
+      <prop>systems/electrical/outputs/dme</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>NAV COMM</output>
+<!--      <switch>controls/circuit_breaker/</switch> -->
+      <switch>controls/switches/arn82/pwr</switch>
+    </connector>
+
+
+    <component>
+      <name>Radar Alt</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/radar_alt</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Radar Alt</output>
+      <switch>controls/circuit_breaker/radar_alt</switch>
+    </connector>
+
+
+    <component>
+      <name>Torque Pressure</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/torque_pressure</prop>
+    </component>
+    <connector>
+      <input>Essential Bus AC 28V</input>
+      <output>Torque Pressure</output>
+      <switch>controls/circuit_breaker/torque_pressure</switch>
+      <switch>controls/switches/main_avionics</switch>
+    </connector>
+
+
+    <component>
+      <name>Transponder</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/transponder</prop>
+    </component>
+    <connector>
+      <input>Essential Bus AC 115V</input>
+      <output>Transponder</output>
+      <switch>controls/circuit_breaker/iff_apx</switch>
+      <switch>controls/switches/apx72/master</switch>
+    </connector>
+
+
+    <component>
+      <name>Turn Coordinator</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/turn_slip_ind</prop>
+      <prop>systems/electrical/outputs/turn-coordinator</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Turn Coordinator</output>
+      <switch>controls/circuit_breaker/turn_slip_ind</switch>
+    </connector>
+
+
+    <component>
+      <name>UHF COMM</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/uhf_comm</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>UHF COMM</output>
+      <switch>controls/circuit_breaker/uhf_arc-51</switch>
+      <switch>controls/switches/arc51bx/func</switch>
+    </connector>
+
+
+    <component>
+      <name>VHF COMM</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/vhf_comm</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>VHF COMM</output>
+      <switch>controls/circuit_breaker/arc_134</switch>
+      <switch>controls/switches/arc134/pwr</switch>
+    </connector>
+
+
+    <component>
+      <name>VHF COMM 2</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/vhf_comm_2</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>VHF COMM 2</output>
+      <switch>controls/circuit_breaker/arc_134</switch>
+      <switch>controls/switches/arc134_2/pwr</switch>
+    </connector>
+    
+    <component>
+      <name>Wiper CPLT</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/wiper_cplt</prop>
+    </component>
+    <connector>
+      <input>NonEssential Bus</input>
+      <output>Wiper CPLT</output>
+      <switch>controls/circuit_breaker/wiper_cplt</switch>
+<!--      <switch>controls/wiper/speed</switch> -->
+    </connector>
+
+
+    <component>
+      <name>Wiper PLT</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/wiper_plt</prop>
+    </component>
+    <connector>
+      <input>NonEssential Bus</input>
+      <output>Wiper PLT</output>
+      <switch>controls/circuit_breaker/wiper_plt</switch>
+<!--      <switch>/controls/wiper/speed</switch> -->
+    </connector>
+
+
+    <component>
+      <name>VSI</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/vsi</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>VSI</output>
+    </connector>
+
+
+<!-- Components -->
+    <component>
+      <name>Chip Det</name>
+      <kind>output</kind>
+      <prop>systems/electrical/outputs/chip_det</prop>
+    </component>
+    <connector>
+      <input>Essential Bus DC</input>
+      <output>Chip Det</output>
+      <switch>controls/switches/chipdet</switch>
+    </connector>
+
+  </electrical>
+
+</PropertyList>

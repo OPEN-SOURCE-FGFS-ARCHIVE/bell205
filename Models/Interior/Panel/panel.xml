@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>panel.ac</path>
+
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/controls.xml</path>
+  </model>
+
+  <!-- ai -->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/ai/ai.xml</path>
+    <offsets>
+      <x-m> -0.232 </x-m>
+      <y-m>  0.360 </y-m>
+      <z-m>  0.282 </z-m>
+      <roll-deg>      0 </roll-deg>
+      <pitch-deg>   -15 </pitch-deg>
+      <heading-deg>   0 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- alt -->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/alt/alt.xml</path>
+    <offsets>
+      <x-m> -0.254 </x-m>
+      <y-m>  0.467 </y-m>
+      <z-m>  0.275 </z-m>
+      <roll-deg>      0 </roll-deg>
+      <pitch-deg>   -15 </pitch-deg>
+      <heading-deg>   0 </heading-deg>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/alt/altcp.xml</path>
+    <offsets>
+      <x-m> -0.252 </x-m>
+      <y-m> -0.208 </y-m>
+      <z-m>  0.260 </z-m>
+      <roll-deg>      0 </roll-deg>
+      <pitch-deg>   -15 </pitch-deg>
+      <heading-deg>   0 </heading-deg>
+    </offsets>
+  </model>
+
+<!-- ammeter -->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/ammeter/ammeter_bat.xml</path>
+    <offsets>
+      <x-m> -0.210 </x-m>
+      <y-m> -0.064 </y-m>
+      <z-m>  0.104 </z-m>
+      <pitch-deg>   -15 </pitch-deg>
+    </offsets>
+  </model>
+
+<!--
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/ammeter/ammeter_ext.xml</path>
+    <offsets>
+      <x-m> -0.193 </x-m>
+      <y-m> -0.064 </y-m>
+      <z-m>  0.035 </z-m>
+      <pitch-deg>   -15 </pitch-deg>
+    </offsets>
+  </model>
+-->
+
+<!-- asi -->
+   <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/asi/asi.xml</path>
+    <offsets>
+      <x-m> -0.256 </x-m>
+      <y-m>  0.253 </y-m>
+      <z-m>  0.275 </z-m>
+      <roll-deg>      0 </roll-deg>
+      <pitch-deg>   -15 </pitch-deg>
+      <heading-deg>   0 </heading-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/asi/asicp.xml</path>
+    <offsets>
+      <x-m> -0.252 </x-m>
+      <y-m> -0.442 </y-m>
+      <z-m>  0.261 </z-m>
+      <roll-deg>      0 </roll-deg>
+      <pitch-deg>   -15 </pitch-deg>
+      <heading-deg>   0 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- chronograph -->
+   <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/chronograph/chronograph.xml</path>
+    <offsets>
+      <x-m> -0.200 </x-m>
+      <y-m>  0.480 </y-m>
+      <z-m>  0.080 </z-m>
+      <roll-deg>      0 </roll-deg>
+      <pitch-deg>   -15 </pitch-deg>
+      <heading-deg>   0 </heading-deg>
+    </offsets>
+  </model>
+
+<!-- fire det. test -->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/switches/fire_det_test.xml</path>
+    <offsets>
+      <x-m>-0.2725 </x-m>
+      <y-m> 0.138 </y-m>
+      <z-m> 0.338 </z-m>
+      <pitch-deg>75</pitch-deg>
+    </offsets>
+  </model>
+
+<!-- fire det. warning -->
+  <animation>
+    <type>select</type>
+    <object-name>firedetlight</object-name>
+    <condition>
+      <property>/systems/electrical/outputs/fire_det</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>firedetlight</object-name>
+    <condition>
+      <property>/systems/electrical/outputs/fire_det</property>
+    </condition>
+    <emission>
+      <red>  1.0</red>
+      <green>1.0</green>
+      <blue> 1.0</blue>
+    </emission>
+  </animation>
+
+  <!--fuel-->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/fuel/fflow1.xml</path>
+    <offsets>
+      <x-m> -0.259 </x-m>
+      <y-m> -0.131 </y-m>
+      <z-m>  0.291 </z-m>
+      <roll-deg>      0 </roll-deg>
+      <pitch-deg>   -15 </pitch-deg>
+      <heading-deg>   0 </heading-deg>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/fuel/fuelqty.xml</path>
+    <offsets>
+      <x-m> -0.259 </x-m>
+      <y-m> -0.064 </y-m>
+      <z-m>  0.291 </z-m>
+      <roll-deg>      0 </roll-deg>
+      <pitch-deg>   -15 </pitch-deg>
+      <heading-deg>   0 </heading-deg>
+    </offsets>
+  </model>
+
+  <!-- fuel ind. test -->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/switches/fuel_ind_test.xml</path>
+    <offsets>
+      <x-m>-0.2625 </x-m>
+      <y-m> 0.060 </y-m>
+      <z-m> 0.298 </z-m>
+      <pitch-deg>75</pitch-deg>
+    </offsets>
+  </model>
+
+  <!--gyrocomp-->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/gyrocomp/gyro-compass.xml</path>
+    <offsets>
+      <x-m> -0.230 </x-m>
+      <y-m>  0.359 </y-m>
+      <z-m>  0.177 </z-m>
+      <roll-deg>      0 </roll-deg>
+      <pitch-deg>   -15 </pitch-deg>
+      <heading-deg>   0 </heading-deg>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/gyrocomp/gyro-compasscp.xml</path>
+    <offsets>
+      <x-m> -0.224 </x-m>
+      <y-m> -0.317 </y-m>
+      <z-m>  0.149 </z-m>
+      <roll-deg>      0 </roll-deg>
+      <pitch-deg>   -15 </pitch-deg>
+      <heading-deg>   0 </heading-deg>
+    </offsets>
+  </model>
+
+  <!--ILS-->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/ILS/ils.xml</path>
+    <offsets>
+      <x-m>-0.202</x-m>
+      <y-m> 0.358</y-m>
+      <z-m> 0.070</z-m>
+      <roll-deg>   0</roll-deg>
+      <pitch-deg>-15</pitch-deg>
+      <heading-deg>0</heading-deg>
+    </offsets>
+  </model>
+
+<!-- key -->
+   <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/key/key.xml</path>
+    <offsets>
+      <x-m>-0.185</x-m>
+      <y-m> 0.493</y-m>
+      <z-m> 0.020</z-m>
+      <pitch-deg>75</pitch-deg>
+    </offsets>
+  </model>
+
+<!-- marker beacon -->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/r1041/r1041.xml</path>
+    <offsets>
+      <x-m>-0.200</x-m>
+      <y-m> 0.420</y-m>
+      <z-m> 0.080</z-m>
+      <pitch-deg>75</pitch-deg>
+    </offsets>
+  </model>
+
+<!-- master caution warning -->
+  <animation>
+    <type>select</type>
+    <object-name>mastercautionlight</object-name>
+    <condition>
+      <property>systems/electrical/outputs/master_caution</property>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>mastercautionlight</object-name>
+    <emission>
+      <red>  1.0</red>
+      <green>1.0</green>
+      <blue> 1.0</blue>
+    </emission>
+  </animation>
+
+  <!--radaralt-->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/radaralt/rad-alt.xml</path>
+    <offsets>
+      <x-m> -0.230 </x-m>
+      <y-m>  0.145 </y-m>
+      <z-m>  0.177 </z-m>
+      <roll-deg>      0 </roll-deg>
+      <pitch-deg>   -15 </pitch-deg>
+      <heading-deg>   0 </heading-deg>
+    </offsets>
+  </model>
+
+<!-- radio compass -->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/radio-compass/compas.xml</path>
+    <offsets>
+      <x-m> -0.212 </x-m>
+      <y-m>  0.566 </y-m>
+      <z-m>  0.090 </z-m>
+      <pitch-deg>   -15 </pitch-deg>
+    </offsets>
+  </model>
+
+<!-- rotor rpm warning -->
+  <animation>
+    <type>select</type>
+    <object-name>rpmwarnlight</object-name>
+    <condition>
+      <property>systems/electrical/outputs/rpm_warn_system</property>
+      <property>controls/switches/engine/mainfuel</property>
+      <or>
+        <less-than>
+          <property>rotors/main/rpm</property>
+          <value>300</value>
+        </less-than>
+        <greater-than>
+          <property>rotors/main/rpm</property>
+          <value>340</value>
+        </greater-than>
+      </or>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>rpmwarnlight</object-name>
+    <emission>
+      <red>  1.0</red>
+      <green>1.0</green>
+      <blue> 1.0</blue>
+    </emission>
+  </animation>
+
+<!--RPM-->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/RPM/rpm.xml</path>
+    <offsets>
+      <x-m> -0.251 </x-m>
+      <y-m>  0.146 </y-m>
+      <z-m>  0.276 </z-m>
+      <roll-deg>      0 </roll-deg>
+      <pitch-deg>   -15 </pitch-deg>
+      <heading-deg>   0 </heading-deg>
+    </offsets>
+  </model>
+
+<!--second AI-->
+   <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/standby-adi/stdby-adi.xml</path>
+    <offsets>
+      <x-m> -0.238 </x-m>
+      <y-m> -0.324 </y-m>
+      <z-m>  0.264 </z-m>
+      <roll-deg>    0 </roll-deg>
+      <pitch-deg>   0 </pitch-deg>
+      <heading-deg> 0 </heading-deg>
+    </offsets>
+  </model>
+
+<!-- tailrpm-->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/tailrpm/tailrpm.xml</path>
+    <offsets>
+      <x-m> -0.259 </x-m>
+      <y-m>  0.005 </y-m>
+      <z-m>  0.291 </z-m>
+      <roll-deg>      0 </roll-deg>
+      <pitch-deg>   -15 </pitch-deg>
+      <heading-deg>   0 </heading-deg>
+    </offsets>
+  </model>
+
+<!-- Temp. -->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/temp/temp.xml</path>
+    <offsets>
+      <x-m> -0.200 </x-m>
+      <y-m>  0.252 </y-m>
+      <z-m>  0.064 </z-m>
+      <pitch-deg>   -15 </pitch-deg>
+    </offsets>
+  </model>
+
+<!-- torque -->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/torque/torque.xml</path>
+    <offsets>
+      <x-m> -0.225 </x-m>
+      <y-m>  0.006 </y-m>
+      <z-m>  0.177 </z-m>
+      <pitch-deg>   -15 </pitch-deg>
+    </offsets>
+  </model>
+
+<!--Turn Coordinator-->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/Turn/Turn.xml</path>
+    <offsets>
+      <x-m> -0.227 </x-m>
+      <y-m>  0.253 </y-m>
+      <z-m>  0.179 </z-m>
+      <roll-deg>      0 </roll-deg>
+      <pitch-deg>   -15 </pitch-deg>
+      <heading-deg>   0 </heading-deg>
+    </offsets>
+  </model>
+
+<!-- voltmeter -->
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/voltmeter/voltmeter_ac.xml</path>
+    <offsets>
+      <x-m> -0.193 </x-m>
+      <y-m>  0.006 </y-m>
+      <z-m>  0.035 </z-m>
+      <pitch-deg>   -15 </pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/voltmeter/voltmeter_dc.xml</path>
+    <offsets>
+      <x-m> -0.212 </x-m>
+      <y-m>  0.006 </y-m>
+      <z-m>  0.106 </z-m>
+      <pitch-deg>   -15 </pitch-deg>
+    </offsets>
+  </model>
+
+  <!--VSI-->
+   <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/vsi/vsi.xml</path>
+    <offsets>
+      <x-m> -0.229 </x-m>
+      <y-m>  0.467 </y-m>
+      <z-m>  0.179 </z-m>
+      <roll-deg>      0 </roll-deg>
+      <pitch-deg>   -15 </pitch-deg>
+      <heading-deg>   0 </heading-deg>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/bell205/Models/Interior/Panel/Instruments/vsi/vsicp.xml</path>
+    <offsets>
+      <x-m> -0.221 </x-m>
+      <y-m> -0.205 </y-m>
+      <z-m>  0.151 </z-m>
+      <roll-deg>      0 </roll-deg>
+      <pitch-deg>   -15 </pitch-deg>
+      <heading-deg>   0 </heading-deg>
+    </offsets>
+  </model>
+
+</PropertyList>

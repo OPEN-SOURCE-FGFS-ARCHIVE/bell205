@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+
+<PropertyList>
+
+  <path>momentarily.ac</path>
+
+  <animation>
+    <type>material</type>
+    <object-name>shaft</object-name>
+    <object-name>fscrew</object-name>
+    <emission>
+      <factor-prop>systems/electrical/outputs/bus_avionics</factor-prop>
+      <red>  0.02</red>
+      <green>0.02</green>
+      <blue> 0.02</blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <object-name>shaft</object-name>
+    <object-name>fscrew</object-name>
+    <min-m>0</min-m>
+    <max-m>20</max-m>
+  </animation>
+
+  <animation>
+    <type>slider</type>
+    <object-name>shaft</object-name>
+    <property>controls/switches/fire_det</property>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>-1</z>
+    </axis>
+    <factor>0.008</factor>
+    <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/switches/fire_det</property>
+        <min>0</min>
+        <max>1</max>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+    <release>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/switches/fire_det</property>
+        <step>0</step>
+        <min>0</min>
+        <max>0</max>
+        <wrap>false</wrap>
+      </binding>
+    </release>
+  </animation>
+
+</PropertyList>

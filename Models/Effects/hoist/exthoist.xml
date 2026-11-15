@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>exthoist.ac</path>
+
+  <model>
+    <name>Rescue-Op</name>
+    <path>Aircraft/bell205/Models/Effects/Rescue/Rescue-Op.xml</path>
+    <offsets>
+      <x-m>-0.200</x-m>
+      <y-m> 0.460</y-m>
+      <z-m> 4.150</z-m>
+      <heading-deg>180</heading-deg>
+      <pitch-deg>3</pitch-deg>
+    </offsets>
+  </model>
+
+<!--  <animation>
+    <type>range</type>
+    <min-m>0</min-m>
+    <max-m>100</max-m>
+  </animation> -->
+
+  <animation>
+    <type>select</type>
+    <name>winch</name>
+    <condition>
+      <property>sim/model/bell205/hoist-enabled</property>
+      <property>sim/model/bell205/hoist-ext</property>
+    </condition>
+  </animation>
+
+</PropertyList>

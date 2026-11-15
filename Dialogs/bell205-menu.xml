@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <default>
+    <menu n="10">
+      <label>Bell 205</label>
+      <enabled type="bool">true</enabled>
+
+      <item>
+        <label>Autostart</label>
+        <binding>
+          <command>nasal</command>
+          <script>bell205.autostart(1)</script>
+        </binding>
+      </item>
+
+      <item>
+        <label>Select Livery</label>
+        <binding>
+          <command>nasal</command>
+          <script>aircraft.livery.dialog.toggle()</script>
+        </binding>
+      </item>
+
+      <item>
+        <label>Male/Female Pilot</label>
+        <binding>
+          <command>nasal</command>
+          <script>
+            var p = "sim/model/bell205/sex-pilot";
+            setprop( p, var i = !getprop( p ) );
+            gui.popupTip( (i ? "Male" : "Female") ~ " Pilot" );
+          </script>
+        </binding>
+      </item>
+
+      <item>
+        <label>Show/hide sprayer</label>
+        <binding>
+          <command>property-toggle</command>
+          <property>sim/model/bell205/hide-sprayer</property>
+        </binding>
+      </item>
+
+    </menu>
+  </default>
+
+</PropertyList>
+

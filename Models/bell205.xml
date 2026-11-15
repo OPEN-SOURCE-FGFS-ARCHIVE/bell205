@@ -1,0 +1,735 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+<!-- MP Sound -->
+  <sound>
+    <path>Aircraft/bell205/Sounds/mp-sound.xml</path>
+  </sound>
+
+  <nasal>
+    <load>
+      var livery_update = aircraft.livery_update.new(
+        "Aircraft/bell205/Models/Liveries", 10,	func{ print( "Bell205 livery update" ) }
+      );
+
+      <![CDATA[
+        var a = "sim/multiplay/generic/float[7]";
+        a = "sim/multiplay/generic/float[8]";
+        a = "sim/multiplay/generic/float[9]";
+        a = "sim/multiplay/generic/float[10]";
+        a = "sim/multiplay/generic/float[11]";
+
+        var mppath = "/ai/models/multiplayer["~ cmdarg().getIndex() ~"]/";
+        var lightpath = mppath~"lighting/";
+        props.globals.initNode( mppath~"sim/is-MP-Aircraft", 1, "BOOL" );
+
+        var modeswitch   = mppath~"sim/multiplay/generic/float[17]";
+        var beaconswitch = mppath~"sim/multiplay/generic/int[6]";
+        var strobeswitch = mppath~"sim/multiplay/generic/int[4]";
+
+        var beacon = nil;
+        if( beaconswitch!=nil ){
+          beacon = aircraft.light.new( lightpath~"beacon", [0.85, 0.85], beaconswitch );
+          setlistener( modeswitch, func(){
+            var bmode = props.globals.getNode( modeswitch ).getValue();
+            if( bmode == -1.0 ){
+              beacon.blink();
+            }else if( bmode == 1.0 ){
+              beacon.cont();
+            }else{  # bmode == 0.0
+              beacon.switch( 0 );
+            }
+          }, 1, 0 );
+        }
+
+        var strobe = nil;
+        var strobe2 = nil;
+        if( strobeswitch!=nil ){
+          strobe =  aircraft.light.new( lightpath~"strobe-state",  [0.05, 1.00], strobeswitch );
+          strobe2 = aircraft.light.new( lightpath~"strobe-state2", [0.05, 1.05], strobeswitch );
+        }
+      ]]>
+    </load>
+
+    <unload>
+      livery_update.stop();
+
+      if( beaconswitch != nil ){
+        setprop( beaconswitch, 0 );
+      }
+      beacon.del();
+      beacon = nil;
+      
+      if( strobeswitch != nil ){
+        setprop( strobeswitch, 0 );
+      }
+      strobe.del();
+      strobe = nil;
+    </unload>
+  </nasal>
+  
+  <!-- Fuselage -->
+  <path>bell205.ac</path>
+
+  <animation>
+    <type>material</type>
+    <object-name>fuselage</object-name>
+    <object-name>elevatortrim</object-name>
+    <object-name>frontdoorleft</object-name>
+    <object-name>frontdoorright</object-name>
+    <object-name>sidedoorleft</object-name>
+    <object-name>sidedoorright</object-name>
+    <object-name>slidedoorleft</object-name>
+    <object-name>slidedoorright</object-name>
+    <object-name>wirecutter_down</object-name>
+    <object-name>wirecutter_up</object-name>
+    <object-name>air</object-name>
+    <object-name>skid</object-name>
+    <object-name>leftside</object-name>
+    <object-name>rightside</object-name>
+    <object-name>leftslide</object-name>
+    <object-name>rightslide</object-name>
+    <object-name>supportlampes</object-name>
+    <object-name>attaches</object-name>
+    <object-name>charnieres</object-name>
+    <object-name>frontcharnieres</object-name>
+    <object-name>trous</object-name>
+
+    <property-base>sim/model/livery</property-base>
+    <texture-prop>texture</texture-prop>
+    <texture>texture.png</texture>
+
+  </animation>
+
+  <effect>
+   <inherits-from>Aircraft/bell205/Models/Effects/reflect-uber</inherits-from>
+    <condition>
+      <not>
+        <property>sim/rendering/rembrand/enabled</property>
+      </not>
+    </condition>
+    <object-name>fuselage</object-name>
+    <object-name>frontdoorleft</object-name>
+	 <object-name>sidedoorleft</object-name>
+	<object-name>slidedoorleft</object-name>
+	<object-name>elevatortrim</object-name>
+	  <object-name>slidedoorright</object-name>
+    <object-name>sidedoorright</object-name>
+    <object-name>frontdoorright</object-name>
+   <object-name>wirecutter_down</object-name>
+   <object-name>air</object-name>
+    <object-name>skid</object-name>
+    <object-name>leftside</object-name>
+    <object-name>rightside</object-name>
+    <object-name>leftslide</object-name>
+    <object-name>rightslide</object-name>
+    <object-name>supportlampes</object-name>
+	
+  </effect>
+
+  <effect>
+    <inherits-from>Aircraft/bell205/Models/Effects/greenreflectglas-uber</inherits-from>
+    <object-name>vitrestop</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Aircraft/bell205/Models/Effects/reflectglas-uber</inherits-from>
+    <object-name>frontdoorglasleft</object-name>
+    <object-name>frontdoorglasright</object-name>
+    <object-name>sidedoorglasleft</object-name>
+    <object-name>sidedoorglasright</object-name>
+    <object-name>slidedoorglasleft</object-name>
+    <object-name>slidedoorglasright</object-name>
+    <object-name>vitres</object-name>
+    <object-name>bottomglas</object-name>
+    <object-name>beacon</object-name>
+  </effect>
+
+  <effect>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <condition>
+      <property>sim/rendering/rembrandt/enabled</property>
+    </condition>
+    <object-name>frontdoorglasleft</object-name>
+    <object-name>frontdoorglasright</object-name>
+    <object-name>sidedoorglasleft</object-name>
+    <object-name>sidedoorglasright</object-name>
+    <object-name>slidedoorglasleft</object-name>
+    <object-name>slidedoorglasright</object-name>
+    <object-name>vitres</object-name>
+    <object-name>bottomglas</object-name>
+    <object-name>beacon</object-name>
+    <object-name>taillighttrs</object-name>
+  </effect>
+
+
+  <!-- Sprayer -->
+  <model>
+    <path>Aircraft/bell205/Models/Effects/Sprayer/sprayer.xml</path>
+    <offsets>
+      <x-m> -6.053 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -1.705 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Doors -->
+  <!-- Right Front Door -->
+  <animation>
+    <type>pick</type>
+    <object-name>frontdoorright</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+        <command>nasal</command>
+        <script>bell205.rightFrontDoor.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <name>RightFrontDoor</name>
+    <object-name>frontdoorright</object-name>
+    <object-name>frontdoorglasright</object-name>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>RightFrontDoor</object-name>
+    <property>sim/multiplay/generic/float[1]</property>
+    <factor>80</factor>
+    <axis>
+      <x1-m> -7.284 </x1-m>
+      <y1-m>  0.853 </y1-m>
+      <z1-m> -1.285 </z1-m>
+      <x2-m> -7.288 </x2-m>
+      <y2-m>  0.887 </y2-m>
+      <z2-m> -0.777 </z2-m>
+    </axis>
+  </animation>
+ 
+  <!-- Left Front Door -->
+  <animation>
+    <type>pick</type>
+    <object-name>frontdoorleft</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+         <command>nasal</command>
+         <script>bell205.leftFrontDoor.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <name>LeftFrontDoor</name>
+    <object-name>frontdoorleft</object-name>
+    <object-name>frontdoorglasleft</object-name>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>LeftFrontDoor</object-name>
+    <property>sim/multiplay/generic/float[2]</property>
+    <factor>-80</factor>
+    <axis>
+      <x1-m> -7.284 </x1-m>
+      <y1-m> -0.853 </y1-m>
+      <z1-m> -1.285 </z1-m>
+      <x2-m> -7.288 </x2-m>
+      <y2-m> -0.887 </y2-m>
+      <z2-m> -0.777 </z2-m>
+    </axis>
+  </animation>
+ 
+  <!-- Right Side Door -->
+  <animation>
+    <type>pick</type>
+    <object-name>sidedoorright</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+         <command>nasal</command>
+         <script>bell205.rightSideDoor.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <name>RightDoor</name>
+    <object-name>sidedoorright</object-name>
+    <object-name>sidedoorglasright</object-name>
+    <object-name>rightside</object-name>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>RightDoor</object-name>
+    <property>sim/multiplay/generic/float[3]</property>
+    <factor>80</factor>
+    <center>
+      <x-m> -6.107 </x-m>
+      <y-m>  1.120 </y-m>
+      <z-m> -0.608 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+ 
+  <!-- Left Side Door -->
+  <animation>
+    <type>pick</type>
+    <object-name>sidedoorleft</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+         <command>nasal</command>
+         <script>bell205.leftSideDoor.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <name>LeftDoor</name>
+    <object-name>sidedoorleft</object-name>
+    <object-name>sidedoorglasleft</object-name>
+    <object-name>leftside</object-name>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>LeftDoor</object-name>
+    <property>sim/multiplay/generic/float[4]</property>
+    <factor>-80</factor>
+    <center>
+      <x-m> -6.107 </x-m>
+      <y-m> -1.120 </y-m>
+      <z-m> -0.608 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+ 
+  <!-- Right Slide Door -->
+  <animation>
+    <type>pick</type>
+    <object-name>slidedoorright</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+         <command>nasal</command>
+         <script>
+           if( getprop( "controls/hoist/hoist-position" )==0 )
+             bell205.rightSlideDoor.toggle();
+         </script>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <name>RightSlide</name>
+    <object-name>slidedoorright</object-name>
+    <object-name>slidedoorglasright</object-name>
+    <object-name>rightslide</object-name>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>RightSlide</object-name>
+    <property>sim/multiplay/generic/float[5]</property>
+    <interpolation>
+      <entry><ind> 0.0 </ind><dep> 0.000 </dep></entry>
+      <entry><ind> 0.1 </ind><dep> 0.075 </dep></entry>
+      <entry><ind> 1.0 </ind><dep> 0.170 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>RightSlide</object-name>
+    <property>sim/multiplay/generic/float[5]</property>
+    <interpolation>
+      <entry><ind> 0.0 </ind><dep>   0 </dep></entry>
+      <entry><ind> 0.1 </ind><dep>   0 </dep></entry>
+      <entry><ind> 1.0 </ind><dep> -15 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> -5.656 </x-m>
+      <y-m> -6.182 </y-m>
+      <z-m> -0.789 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+  <!-- Left Slide Door -->
+  <animation>
+    <type>pick</type>
+    <object-name>slidedoorleft</object-name>
+    <visible>true</visible>
+    <action>
+      <button>0</button>
+      <repeatable>false</repeatable>
+      <binding>
+         <command>nasal</command>
+         <script>bell205.leftSlideDoor.toggle();</script>
+      </binding>
+    </action>
+  </animation>
+  <animation>
+    <name>LeftSlide</name>
+    <object-name>slidedoorleft</object-name>
+    <object-name>slidedoorglasleft</object-name>
+    <object-name>leftslide</object-name>
+  </animation>
+  <animation>
+    <type>translate</type>
+    <object-name>LeftSlide</object-name>
+    <property>sim/multiplay/generic/float[6]</property>
+    <interpolation>
+      <entry><ind> 0.0 </ind><dep>  0.000 </dep></entry>
+      <entry><ind> 0.1 </ind><dep> -0.075 </dep></entry>
+      <entry><ind> 1.0 </ind><dep> -0.170 </dep></entry>
+    </interpolation>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+  <animation>
+    <type>rotate</type>
+    <object-name>LeftSlide</object-name>
+    <property>sim/multiplay/generic/float[6]</property>
+    <interpolation>
+      <entry><ind> 0.0 </ind><dep>  0 </dep></entry>
+      <entry><ind> 0.1 </ind><dep>  0 </dep></entry>
+      <entry><ind> 1.0 </ind><dep> 15 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m> -5.656 </x-m>
+      <y-m>  6.182 </y-m>
+      <z-m> -0.789 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 0 </y>
+      <z> 1 </z>
+    </axis>
+  </animation>
+
+  <!-- Elevator -->
+  <animation>
+    <type>rotate</type>
+    <object-name>elevatortrim</object-name>
+    <property>surface-positions/elevator-pos-norm</property>
+    <interpolation>
+      <entry><ind> -0.75 </ind><dep>  -1.5 </dep></entry>
+      <entry><ind>  0.00 </ind><dep>   0.0 </dep></entry>
+      <entry><ind>  0.75 </ind><dep>   1.5 </dep></entry>
+    </interpolation>
+    <center>
+      <x-m>  1.201 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -0.106 </z-m>
+    </center>
+    <axis>
+      <x> 0 </x>
+      <y> 1 </y>
+      <z> 0 </z>
+    </axis>
+  </animation>
+
+<!-- wiper -->
+  <model>
+    <name>wiper</name>
+    <path>Aircraft/bell205/Models/wiper.xml</path>
+    <offsets>
+      <pitch-deg> 25.0 </pitch-deg>
+      <x-m>-7.020 </x-m>
+      <y-m> 0.000 </y-m>
+      <z-m> 0.050 </z-m>
+    </offsets>
+  </model>
+
+<!-- Hoist extern -->
+  <model>
+    <name>exthoist</name>
+    <path>Aircraft/bell205/Models/Effects/hoist/exthoist.xml</path>
+    <offsets>
+      <x-m>-4.65</x-m>
+      <y-m> 1.05</y-m>
+      <z-m> 0.03</z-m>
+    </offsets>
+  </model>
+
+<!-- Lights -->
+<!-- Anti Coll. -->
+  <model>
+    <path>Aircraft/bell205/Models/lights/anticollred.xml</path>
+    <offsets>
+      <x-m> -2.540 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.853 </z-m>
+    </offsets>
+  </model>
+  <model>
+    <path>Aircraft/bell205/Models/lights/anticollwhitetop.xml</path>
+    <offsets>
+      <x-m>-2.540</x-m>
+      <y-m> 0.000</y-m>
+      <z-m> 0.843</z-m>
+    </offsets>
+  </model>
+  <model>
+    <path>Aircraft/bell205/Models/lights/anticollwhitebottom.xml</path>
+    <offsets>
+      <x-m>-5.920</x-m>
+      <y-m> 0.000</y-m>
+      <z-m>-1.700</z-m>
+    </offsets>
+  </model>
+
+<!-- Tail Light -->
+  <model>
+    <path>Aircraft/bell205/Models/lights/taillight.xml</path>
+    <offsets>
+      <x-m>  3.950 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  0.450 </z-m>
+    </offsets>
+  </model>
+
+<!-- Upper Left -->
+  <model>
+    <path>Aircraft/bell205/Models/lights/beaconred.xml</path>
+    <offsets>
+      <x-m> -4.800 </x-m>
+      <y-m> -1.135 </y-m>
+      <z-m>  0.060 </z-m>
+    </offsets>
+  </model>
+  <model>
+    <path>Aircraft/bell205/Models/lights/beaconwhite.xml</path>
+    <offsets>
+      <x-m> -4.800 </x-m>
+      <y-m> -1.135 </y-m>
+      <z-m>  0.060 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Lower Left -->
+  <model>
+    <path>Aircraft/bell205/Models/lights/beaconred.xml</path>
+    <offsets>
+      <x-m> -6.245 </x-m>
+      <y-m> -1.010 </y-m>
+      <z-m> -1.350 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Upper Right -->
+  <model>
+    <path>Aircraft/bell205/Models/lights/beacongreen.xml</path>
+    <offsets>
+      <x-m> -4.800 </x-m>
+      <y-m>  1.145 </y-m>
+      <z-m>  0.060 </z-m>
+    </offsets>
+  </model>
+  <model>
+    <path>Aircraft/bell205/Models/lights/beaconwhite.xml</path>
+    <offsets>
+      <x-m> -4.800 </x-m>
+      <y-m>  1.145 </y-m>
+      <z-m>  0.060 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Lower Right -->
+  <model>
+    <path>Aircraft/bell205/Models/lights/beacongreen.xml</path>
+    <offsets>
+      <x-m> -6.255 </x-m>
+      <y-m>  1.010 </y-m>
+      <z-m> -1.350 </z-m>
+    </offsets>
+  </model>
+
+<!-- Taxi/Landing Light -->
+  <model>
+    <path>Aircraft/bell205/Models/lights/landinglight.xml</path>
+    <offsets>
+      <x-m>-5.920</x-m>
+      <y-m> 0.210</y-m>
+      <z-m>-1.580</z-m>
+      <pitch-deg>-3.5</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <path>Aircraft/bell205/Models/lights/searchlightflash.xml</path>
+    <offsets>
+      <x-m>-5.920</x-m>
+      <y-m> 0.210</y-m>
+      <z-m>-1.580</z-m>
+      <pitch-deg>-3.5</pitch-deg>
+    </offsets>
+  </model>
+
+<!-- Search Light -->
+  <model>
+    <path>Aircraft/bell205/Models/lights/searchlightflash.xml</path>
+    <offsets>
+      <x-m>-7.035</x-m>
+      <y-m> 0.000</y-m>
+      <z-m>-1.520</z-m>
+      <pitch-deg>-29</pitch-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>slight0</name>
+    <path>Aircraft/bell205/Models/lights/searchlightcone.xml</path>
+    <offsets>
+      <x-m>-7.035</x-m>
+      <y-m> 0.000</y-m>
+      <z-m>-1.520</z-m>
+      <pitch-deg>29</pitch-deg>
+      <roll-deg>180</roll-deg>
+    </offsets>
+  </model>
+
+  <model>
+    <name>slight1</name>
+    <path>Aircraft/bell205/Models/lights/searchlightcone.xml</path>
+    <offsets>
+      <x-m> -7.035 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m> -1.520 </z-m>
+      <pitch-deg>-30</pitch-deg>
+    </offsets>
+  </model>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>slight0</object-name>
+    <object-name>slight1</object-name>
+    <property>sim/multiplay/generic/float[14]</property>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+    <center>
+      <x-m>-7.035</x-m>
+      <y-m> 0.000</y-m>
+      <z-m>-1.520</z-m>
+    </center>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>slight0</object-name>
+    <object-name>slight1</object-name>
+    <property>sim/multiplay/generic/float[15]</property>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+    <center>
+      <x-m>-7.035</x-m>
+      <y-m> 0.000</y-m>
+      <z-m>-1.520</z-m>
+    </center>
+  </animation>
+  
+  <!-- Rembrandt lights -->
+  <model>
+    <path>Aircraft/bell205/Models/lights/rembrandtlights.xml</path>
+    <condition>
+      <property>sim/rendering/rembrandt/enabled</property>
+    </condition>
+    <offsets>
+      <x-m>0.0</x-m>
+      <y-m>0.0</y-m>
+      <z-m>0.0</z-m>
+    </offsets>
+  </model>
+
+  <!-- Engine -->
+  <model>
+    <path>Aircraft/bell205/Models/monoengine.xml</path>
+  </model>
+
+  <!-- Rotor principale -->
+  <model>
+    <path>Aircraft/bell205/Models/MainRotor/mainrotor.xml</path>
+    <offsets>
+      <x-m> -4.767 </x-m>
+      <y-m>  0.000 </y-m>
+      <z-m>  1.000 </z-m>
+    </offsets>
+  </model>
+
+  <!-- Interieur -->
+  <model>
+    <name>Interieur</name>
+    <path>Aircraft/bell205/Models/Interior/interior.xml</path>
+  </model>
+
+  <!-- For Rembrandt -->
+  <animation>
+    <type>noshadow</type>
+    <object-name>Interieur</object-name>
+  </animation>
+
+  <!-- Rotor de queue -->
+  <model>
+    <path>Aircraft/bell205/Models/TailRotor/tailrotor.xml</path>
+    <offsets>
+      <x-m>  4.271 </x-m>
+      <y-m> -0.473 </y-m>
+      <z-m>  1.555 </z-m>
+      <roll-deg>   90 </roll-deg>
+    </offsets>
+  </model>
+
+  <!-- particle system, thanks to Oliver Thurau -->
+  <model>
+    <name>mainrotors_dirt</name>
+    <path>Aircraft/bell205/Models/Effects/particle/rotor_particle.xml</path>
+    <offsets>
+      <x-m>-7.500</x-m>
+      <y-m> 0.000</y-m>
+      <z-m>-1.000</z-m>
+    </offsets>
+  </model>
+  
+<!-- FTag Models -->
+<!--  <model>
+    <name>FTag</name>
+    <path>Aircraft/FTag/FTag-Models.xml</path>
+    <offsets>
+      <x-m>15</x-m>
+      <y-m>0</y-m>
+      <z-m>0</z-m>
+    </offsets>
+  </model> -->
+
+</PropertyList>

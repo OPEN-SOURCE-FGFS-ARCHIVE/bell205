@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>alt.ac</path>
+
+  <animation>
+    <type>material</type>
+    <object-name>face</object-name>
+    <object-name>needle100</object-name>
+    <object-name>needle1000</object-name>
+    <object-name>needle10000</object-name>
+    <object-name>inhg</object-name>
+    <object-name>inhgknob</object-name>
+    <condition>
+      <property>systems/electrical/outputs/inst_panel_lights</property>
+    </condition>
+    <emission>
+      <factor-prop>controls/lighting/instltg/copilot</factor-prop>
+      <red>  0.1</red>
+      <green>0.1</green>
+      <blue> 0.1</blue>
+    </emission>
+  </animation>
+
+  <effect>
+    <inherits-from>Aircraft/bell205/Models/Effects/reflectglasint-uber</inherits-from>
+    <object-name>vitre</object-name>
+  </effect>
+
+  <effect>
+    <condition>
+      <property>sim/rendering/rembrandt/enabled</property>
+    </condition>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>vitre</object-name>
+  </effect>
+
+  <animation>
+    <type>range</type>
+    <object-name>vitre</object-name>
+    <object-name>face</object-name>
+    <object-name>inhg</object-name>
+    <object-name>inhgknob</object-name>
+    <object-name>needle100</object-name>
+    <object-name>needle1000</object-name>
+    <object-name>needle10000</object-name>
+    <object-name>fond</object-name>
+    <min-m>0</min-m>
+    <max-m>20</max-m>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>needle100</object-name>
+    <property>instrumentation/altimeter/indicated-altitude-ft</property>
+    <factor>0.36</factor>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>needle1000</object-name>
+    <property>instrumentation/altimeter/indicated-altitude-ft</property>
+    <factor>0.036</factor>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>needle10000</object-name>
+    <property>instrumentation/altimeter/indicated-altitude-ft</property>
+    <factor>0.0036</factor>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+
+  <animation>
+    <type>texrotate</type>
+    <object-name>inhg</object-name>
+    <property>instrumentation/altimeter/setting-inhg</property>
+    <interpolation>
+      <entry><ind> 27.9 </ind><dep>   0.00 </dep></entry>
+      <entry><ind> 28.0 </ind><dep>   9.35 </dep></entry>
+      <entry><ind> 28.5 </ind><dep>  59.00 </dep></entry>
+      <entry><ind> 29.0 </ind><dep> 109.00 </dep></entry>
+      <entry><ind> 29.5 </ind><dep> 159.50 </dep></entry>
+      <entry><ind> 29.9 </ind><dep> 200.00 </dep></entry>
+      <entry><ind> 30.0 </ind><dep> 210.00 </dep></entry>
+      <entry><ind> 30.5 </ind><dep> 261.00 </dep></entry>
+      <entry><ind> 31.0 </ind><dep> 310.00 </dep></entry>
+      <entry><ind> 31.4 </ind><dep> 350.00 </dep></entry>
+    </interpolation>
+    <center>
+      <x> 0.25 </x>
+      <y> 0.25 </y>
+    </center>
+    <axis>
+      <x>  0 </x>
+      <y>  0 </y>
+      <z> -1 </z>
+    </axis>
+  </animation>
+
+
+  <animation>
+    <type>knob</type>
+    <object-name>inhgknob</object-name>
+    <property>instrumentation/altimeter/setting-inhg</property>
+    <center>
+      <x-m> 0.009</x-m>
+      <y-m>-0.031</y-m>
+      <z-m>-0.031</z-m>
+    </center>
+    <axis>
+      <x>1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+    <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/altimeter/setting-inhg</property>
+        <factor>0.01</factor>
+        <min>27.90</min>
+        <max>31.40</max>
+      </binding>
+    </action>
+    <shift-action>
+      <binding>
+        <command>property-adjust</command>
+        <property>instrumentation/altimeter/setting-inhg</property>
+        <factor>0.10</factor>
+        <min>27.90</min>
+        <max>31.40</max>
+        <wrap>false</wrap>
+      </binding>
+    </shift-action>
+  </animation>
+
+
+</PropertyList>

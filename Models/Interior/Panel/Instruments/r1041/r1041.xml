@@ -1,0 +1,82 @@
+<?xml version="1.0" ?>
+
+<PropertyList>
+
+  <path>r1041.ac</path>
+
+  <animation>
+    <type>material</type>
+    <object-name>bulb</object-name>
+    <emission>
+      <red>  1.0</red>
+      <green>1.0</green>
+      <blue> 1.0</blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>base</object-name>
+    <object-name>lamp</object-name>
+    <object-name>poti</object-name>
+    <object-name>switch</object-name>
+    <emission>
+      <factor-prop>systems/electrical/outputs/inst_panel_lights</factor-prop>
+      <red>  0.01</red>
+      <green>0.01</green>
+      <blue> 0.01</blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <object-name>base</object-name>
+    <object-name>lamp</object-name>
+    <object-name>poti</object-name>
+    <object-name>switch</object-name>
+    <object-name>bulb</object-name>
+    <min-m>0</min-m>
+    <max-m>20</max-m>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>bulb</object-name>
+    <condition>
+      <property>systems/electrical/outputs/marker_beacon</property>
+      <or>
+        <property>instrumentation/marker-beacon/inner</property>
+        <property>instrumentation/marker-beacon/middle</property>
+        <property>instrumentation/marker-beacon/outer</property>
+      </or>
+    </condition>
+  </animation>
+
+  <animation>
+    <type>knob</type>
+    <object-name>poti</object-name>
+    <property>controls/switches/r1041/func</property>
+    <center>
+      <x-m>0.0424</x-m>
+      <y-m>0.0007</y-m>
+      <z-m>0.0000</z-m>
+    </center>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+    <factor>-2.8</factor>
+    <action>
+      <binding>
+        <command>property-adjust</command>
+        <property>controls/switches/r1041/func</property>
+        <min>0</min>
+        <max>100</max>
+        <step>2</step>
+        <wrap>false</wrap>
+      </binding>
+    </action>
+  </animation>
+
+</PropertyList>

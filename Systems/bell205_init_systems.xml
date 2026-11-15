@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <electrical>
+    <outputs>
+      <bus_maingenerator type="double">0</bus_maingenerator>
+      <bus_avionics type="double">0</bus_avionics>
+      <bus_battery type="double">0</bus_battery>
+      <bus_stbygenerator type="double">0</bus_stbygenerator>
+      <essential_bus type="double">0</essential_bus>
+      <nonessential_bus type="double">0</nonessential_bus>
+      <primary_bus type="double">0</primary_bus>
+
+<!--      <adf type="double">0</adf> -->
+<!--      <audio-panel type="double">0</audio-panel> -->
+<!--      <autopilot type="double">0</autopilot> -->
+<!--      <avionics-fan type="double">0</avionics-fan> -->
+      <anticoll_lights type="double">0</anticoll_lights>
+<!--      <cabin-lights type="double">0</cabin-lights> -->
+<!--      <dme type="double">0</dme> -->
+      <door_egt_ind type="double">0</door_egt_ind>
+<!--      <extltsmode type="int">0</extltsmode> -->
+      <fire_det type="double">0</fire_det>
+      <fuel-pump type="double">0</fuel-pump>
+<!--      <gps type="double">0</gps> -->
+      <hsi type="double">0</hsi>
+      <instr-ignition-switch type="double">0</instr-ignition-switch>
+      <inst_panel_lights type="double">0</inst_panel_lights> -->
+      <ldglt type="double">0</ldglt>
+<!--      <map-lights type="double">0</map-lights> -->
+<!--      <mk-viii type="double">0</mk-viii> -->
+<!--      <nav type="double">0</nav> -->
+      <nav_lights type="double">0</nav_lights>
+<!--      <pitot-heat type="double">0</pitot-heat> -->
+      <rpm_warn_system type="double">0</rpm_warn_system>
+      <search_light type="double">0</search_light>
+      <strobe-lights type="double">0</strobe-lights>
+<!--      <tacan type="double">0</tacan> -->
+      <taxi-lights type="double">0</taxi-lights>
+<!--      <transponder type="double">0</transponder> -->
+      <turn_slip_ind type="double">0</turn_slip_ind>
+      <wiper_cplt type="double">0</wiper_cplt>
+      <wiper_plt type="double">0</wiper_plt>
+      <sounds>
+        <sounder type="bool">false</sounder>
+      </sounds>
+      <warn>
+        <dc_generator type="bool">false</dc_generator>
+        <door_lock type="bool">false</door_lock>
+        <eng_fuel_pump type="bool">false</eng_fuel_pump>
+        <eng_oil_filter type="bool">false</eng_oil_filter>
+        <engine_ice_det type="bool">false</engine_ice_det>
+        <engine_icing type="bool">false</engine_icing>
+        <engine_deice_on type="bool">false</engine_deice_on>
+        <engine_oil_press type="bool">false</engine_oil_press>
+        <fuel_boost_right type="bool">false</fuel_boost_right>
+        <fuel_boost_left type="bool">false</fuel_boost_left>
+        <fuel_filter type="bool">false</fuel_filter>
+        <fuel_low_level type="bool">false</fuel_low_level>
+        <gov_emer type="bool">false</gov_emer>
+        <hyd1_pressure type="bool">false</hyd1_pressure>
+        <hyd2_pressure type="bool">false</hyd2_pressure>
+        <inst_inverter type="bool">false</inst_inverter>
+        <spare type="bool">false</spare>
+        <xmsn_oil_hot type="bool">false</xmsn_oil_hot>
+        <xmsn_oil_press type="bool">false</xmsn_oil_press>
+      </warn>
+    </outputs>
+  </electrical>
+
+  <hydraulic>
+    <pressure1 type="int">0</pressure1>
+    <pressure2 type="int">0</pressure2>
+  </hydraulic>
+
+</PropertyList>

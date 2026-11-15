@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>torque.ac</path>
+
+  <effect>
+    <inherits-from>Aircraft/bell205/Models/Effects/reflectglasint-uber</inherits-from>
+    <object-name>glas</object-name>
+  </effect>
+
+  <effect>
+    <condition>
+      <property>sim/rendering/rembrandt/enabled</property>
+    </condition>
+    <inherits-from>Effects/model-transparent</inherits-from>
+    <object-name>glas</object-name>
+  </effect>
+
+  <animation>
+    <type>range</type>
+    <object-name>glas</object-name>
+    <object-name>face</object-name>
+    <object-name>needle</object-name>
+    <object-name>screwr</object-name>
+    <object-name>screwl</object-name>
+    <object-name>fond</object-name>
+    <min-m>0</min-m>
+    <max-m>20</max-m>
+  </animation>
+
+  <animation>
+    <type>material</type>
+    <object-name>face</object-name>
+    <object-name>needle</object-name>
+    <condition>
+      <property>systems/electrical/outputs/inst_panel_lights</property>
+    </condition>
+    <emission>
+      <factor-prop>controls/lighting/instltg/engine</factor-prop>
+      <red>   0.1 </red>
+      <green> 0.1 </green>
+      <blue>  0.1 </blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>needle</object-name>
+    <property>sim/model/bell205/torque-pct</property>
+    <condition>
+      <property>systems/electrical/outputs/torque_pressure</property>
+    </condition>
+    <interpolation>
+      <entry><ind>   0 </ind><dep> 150   </dep></entry>
+      <entry><ind> 196 </ind><dep> 315.5 </dep></entry>
+      <entry><ind> 250 </ind><dep> 355   </dep></entry>
+    </interpolation>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+</PropertyList>

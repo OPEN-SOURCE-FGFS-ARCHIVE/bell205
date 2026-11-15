@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<PropertyList>
+
+  <path>vent1.ac</path>
+
+  <animation>
+    <type>material</type>
+    <object-name>fond</object-name>
+    <object-name>part1</object-name>
+    <object-name>part2</object-name>
+    <emission>
+      <red>  0.01</red>
+      <green>0.01</green>
+      <blue> 0.01</blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>range</type>
+    <object-name>fond</object-name>
+    <object-name>part1</object-name>
+    <object-name>part2</object-name>
+    <min-m>0</min-m>
+    <max-m>20</max-m>
+  </animation>
+
+</PropertyList>

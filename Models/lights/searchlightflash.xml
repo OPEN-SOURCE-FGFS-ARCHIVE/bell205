@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+
+<PropertyList>
+
+  <path>flash.ac</path>
+
+  <nopreview/>
+
+  <animation>
+    <type>noshadow</type>
+    <object-name>flash</object-name>
+  </animation>
+
+  <animation>
+    <type>flash</type>
+    <object-name>flash</object-name>
+    <two-sides type="bool">false</two-sides>
+     <center>
+      <x-m> 0.0 </x-m>
+      <y-m> 0.0 </y-m>
+      <z-m> 0.0 </z-m>
+    </center>
+    <axis>
+      <x>-1</x>
+      <y>0</y>
+      <z>0</z>
+    </axis>
+   <power>20</power>
+    <factor>15</factor>
+    <offset>0</offset>
+    <min>0.5</min>
+    <max>50</max>
+  </animation>
+
+  <animation>
+    <type>dist-scale</type>
+    <object-name>flash</object-name>
+    <interpolation>
+      <entry>
+        <ind>0</ind>
+        <dep>3</dep>
+      </entry>
+      <entry>
+        <ind>20</ind>
+        <dep>3</dep>
+      </entry>
+    </interpolation>
+  </animation>
+
+  <animation>
+    <type>select</type>
+    <object-name>flash</object-name>
+    <condition>
+      <greater-than>
+        <property>sim/multiplay/generic/int[3]</property>
+        <value>0</value>
+      </greater-than>
+    </condition>
+    <emission>
+      <red>   1.0 </red>
+      <green> 1.0 </green>
+      <blue>  1.0 </blue>
+    </emission>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>flash</object-name>
+    <property>sim/multiplay/generic/float[14]</property>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>flash</object-name>
+    <property>sim/multiplay/generic/float[15]</property>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>o</z>
+    </axis>
+  </animation>
+  
+</PropertyList>

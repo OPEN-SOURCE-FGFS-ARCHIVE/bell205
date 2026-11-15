@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+  <engines>
+    <engine n="0">
+      <magnetos type="int">0</magnetos>
+    </engine>
+  </engines>
+
+  <gear>
+    <brake-parking type="int">1</brake-parking>
+  </gear>
+
+  <hoist>
+    <hoist-position type="double">0</hoist-position>
+  </hoist>
+
+  <rotor>
+    <reltarget type="double">0.0</reltarget>
+    <maxreltorque type="double">0.0</maxreltorque>
+    <brake type="double">1.0</brake>
+  </rotor>
+
+  <avionics>
+    <adf type="bool">false</adf>
+    <audio-panel type="bool">false</audio-panel>
+    <autopilot type="bool">false</autopilot>
+    <avionics-fan type="bool">false</avionics-fan>
+    <dme type="bool">false</dme>
+    <fuel-pump type="bool">false</fuel-pump>
+    <gps type="bool">false</gps>
+    <hsi type="bool">false</hsi>
+    <instr-ignition-switch type="bool">false</instr-ignition-switch>
+    <mk-viii type="bool">false</mk-viii>
+    <nav type="bool">false</nav>
+    <pitot-heat type="bool">false</pitot-heat>
+    <tacan type="bool">false</tacan>
+    <transponder type="bool">false</transponder>
+    <turn-coordinator type="bool">false</turn-coordinator>
+  </avionics>
+
+  <circuit_breaker>
+    <bus-bat type="bool">true</bus-bat>
+    <v28_trans type="int">1</v28_trans>
+    <adf_rcvr type="int">1</adf_rcvr>
+    <aims_alt type="int">1</aims_alt>
+    <anti_coll_light type="int">1</anti_coll_light>
+    <anti_ice_eng type="int">1</anti_ice_eng>
+    <attd_copilot_1 type="int">1</attd_copilot_1>
+    <attd_copilot_2 type="int">1</attd_copilot_2>
+    <attd_pilot_1 type="int">1</attd_pilot_1>
+    <attd_pilot_2 type="int">1</attd_pilot_2>
+    <batt_temp type="int">1</batt_temp>
+    <bleed_air_pwr type="int">1</bleed_air_pwr>
+    <cabin_heater_cont type="int">1</cabin_heater_cont>
+    <cargo_hook_rel type="int">1</cargo_hook_rel>
+    <caution_lights type="int">1</caution_lights>
+    <cockpit_lights type="int">1</cockpit_lights>
+    <console_ped_lights type="int">1</console_ped_lights>
+    <course_ind type="int">1</course_ind>
+    <dome_lights type="int">1</dome_lights>
+    <door_egt_ind type="int">1</door_egt_ind>
+    <eng_air_filter_cont type="int">1</eng_air_filter_cont>
+    <eng_pressure type="int">1</eng_pressure>
+    <fail_relay type="int">1</fail_relay>
+    <fire_det type="int">1</fire_det>
+    <flight_hobbs type="int">1</flight_hobbs>
+    <fm_arc-54 type="int">1</fm_arc-54>
+    <fm2_arc-114 type="int">1</fm2_arc-114>
+    <force_trim type="int">1</force_trim>
+    <fuel_boost_left type="int">1</fuel_boost_left>
+    <fuel_boost_right type="int">1</fuel_boost_right>
+    <fuel_pressure type="int">1</fuel_pressure>
+    <fuel_qty type="int">1</fuel_qty>
+    <fuel_transfer_pump type="int">1</fuel_transfer_pump>
+    <fuel_valve type="int">1</fuel_valve>
+    <fus_lights type="int">1</fus_lights>
+    <gen_bus_reset type="int">1</gen_bus_reset>
+    <gov_cont type="int">1</gov_cont>
+    <gyro_cmps type="int">1</gyro_cmps>
+    <heated_blanket_l type="int">1</heated_blanket_l>
+    <heated_blanket_r type="int">1</heated_blanket_r>
+    <hf_arc-102 type="int">1</hf_arc-102>
+    <hyd_cont type="int">1</hyd_cont>
+    <idle_stop_rel type="int">1</idle_stop_rel>
+    <iff_apx type="int">1</iff_apx>
+    <ignition_system type="int">1</ignition_system>
+    <inst_panel_lights type="int">1</inst_panel_lights>
+    <inst_sec_lights type="int">1</inst_sec_lights>
+    <inter_comm_cplt_crewl type="int">1</inter_comm_cplt_crewl>
+    <inter_comm_plt_crewr type="int">1</inter_comm_plt_crewr>
+    <invtr_cont type="int">1</invtr_cont>
+    <j2_cmps_ind type="int">1</j2_cmps_ind>
+    <ldg_light_pwr type="int">1</ldg_light_pwr>
+    <ldg_search_light_cont type="int">1</ldg_search_light_cont>
+    <lm_fuel_boost_pump type="int">1</lm_fuel_boost_pump>
+    <main_invtr_pwr type="int">1</main_invtr_pwr>
+    <marker_beacon_nav type="int">1</marker_beacon_nav>
+    <nav_lights type="int">1</nav_lights>
+    <nvg_dim_cont type="int">1</nvg_dim_cont>
+    <oas_aux_pwr type="int">1</oas_aux_pwr>
+    <pitot_tube_htr type="int">1</pitot_tube_htr>
+    <radar_alt type="int">1</radar_alt>
+    <rescue_hoist_cable_cutter type="int">1</rescue_hoist_cable_cutter>
+    <rescue_hoist_cont type="int">1</rescue_hoist_cont>
+    <rescue_hoist_power type="int">1</rescue_hoist_power>
+    <rpm_warn_system type="int">1</rpm_warn_system>
+    <search_light_pwr type="int">1</search_light_pwr>
+    <spare_invtr_pwr type="int">1</spare_invtr_pwr>
+    <starter_relay type="int">1</starter_relay>
+    <stat_invtr_pwr type="int">1</stat_invtr_pwr>
+    <stby_gen_field type="int">1</stby_gen_field>
+    <temp_ind_eng_xmsn type="int">1</temp_ind_eng_xmsn>
+    <torque_pressure type="int">1</torque_pressure>
+    <ts_apx type="int">1</ts_apx>
+    <turn_slip_ind type="int">1</turn_slip_ind>
+    <uhf_arc-51 type="int">1</uhf_arc-51>
+    <arc_134 type="int">1</arc_134>
+    <volt_meter_non_ess_bus type="int">1</volt_meter_non_ess_bus>
+    <wiper_cplt type="int">1</wiper_cplt>
+    <wiper_plt type="int">1</wiper_plt>
+    <xmsn_pressure type="int">1</xmsn_pressure>
+  </circuit_breaker>
+
+  <heating>
+    <bleed type="int">0</bleed>
+    <aft type="int">0</aft>
+  </heating>
+
+  <lighting>
+<!--    <anticoll_lights type="bool">false</anticoll_lights> -->
+    <cabin type="bool">false</cabin>
+    <cautionbrightdim type="int">2</cautionbrightdim>
+    <domelight type="int">0</domelight>
+    <extlts type="bool">false</extlts>
+    <extltsdim type="double">1.0</extltsdim>
+    <extltsmode type="float">-1.0</extltsmode>
+    <instrument type="bool">false</instrument>
+    <ldglt type="bool">false</ldglt>
+<!--    <ldgltext type="int">0</ldgltext> -->
+    <map type="bool">false</map>
+    <search-lights type="int">0</search-lights>
+    <search-lights-pitch type="int">0</search-lights-pitch>
+    <strobe type="bool">false</strobe>
+    <instltg>
+      <console type="int">10</console>
+      <ped type="int">10</ped>
+      <sec type="int">10</sec>
+      <engine type="int">10</engine>
+      <copilot type="int">10</copilot>
+      <pilot type="int">10</pilot>
+    </instltg>
+  </lighting>
+
+  <switches>
+    <ac_power type="int">0</ac_power>
+    <alternator type="bool">false</alternator>
+    <anticoll_lights type="bool">false</anticoll_lights>
+    <battery type="bool">false</battery>
+    <bus_avionics type="bool">false</bus_avionics>
+    <cablecut type="bool">false</cablecut>
+    <cablecutclutchguard type="bool">false</cablecutclutchguard>
+    <cautionbrightdim type="int">1</cautionbrightdim>
+    <cargorel type="bool">false</cargorel>
+    <chipdet type="int">0</chipdet>
+    <extlts type="bool">false</extlts>
+    <extltsdim type="bool">false</extltsdim>
+    <extltsmode type="int">0</extltsmode>
+    <fire_det type="bool">false</fire_det>
+    <forcetrim type="bool">false</forcetrim>
+    <frequenceadf type="int">0</frequenceadf>
+    <fuelclutchguard type="bool">false</fuelclutchguard>
+    <fuel_det type="bool">false</fuel_det>
+    <hydcont type="bool">false</hydcont>
+    <invtr type="int">0</invtr>
+    <ldglt type="bool">false</ldglt>
+<!--    <ldgltext type="int">1</ldgltext> -->
+    <lowrpmaudio type="bool">true</lowrpmaudio>
+    <main_avionics type="bool">false</main_avionics>
+    <main_gen type="int">0</main_gen>
+    <maingenclutchguard type="bool">false</maingenclutchguard>
+    <main_invtr type="bool">false</main_invtr>
+    <main_key type="bool">false</main_key>
+    <master_caution type="bool">false</master_caution>
+    <nonessbus type="bool">true</nonessbus>
+    <nvg_pos_lts type="int">0</nvg_pos_lts>
+    <pitot_htr type="bool">false</pitot_htr>
+    <spare_invtr type="bool">false</spare_invtr>
+    <starter type="bool">false</starter>
+    <startergen type="bool">false</startergen>
+    <strobe-lights type="bool">false</strobe-lights>
+    <search_light type="int">0</search_light>
+    <vm type="int">0</vm>
+    <apx72>
+      <audiolight type="int">0</audiolight>
+      <code type="int">0</code>
+      <identmic type="int">0</identmic>
+      <m1 type="int">0</m1>
+      <m2 type="int">0</m2>
+      <m3 type="int">0</m3>
+      <mc type="int">0</mc>
+      <master type="int">0</master>
+      <mode4 type="bool">false</mode4>
+      <radtestmon type="int">0</radtestmon>s
+      <reply type="int">0</reply>
+      <test type="int">0</test>
+    </apx72>
+    <arc134>
+      <freq_khz type="int">0</freq_khz>
+      <freq_mhz type="int">0</freq_mhz>
+      <pwr type="bool">false</pwr>
+      <vol type="double">100</vol>
+    </arc134>
+    <arc134_2>
+      <freq_khz type="int">0</freq_khz>
+      <freq_mhz type="int">0</freq_mhz>
+      <pwr type="bool">false</pwr>
+      <vol type="double">100</vol>
+    </arc134_2>
+    <!-- 225.0 bis 399.95 MHz -->
+    <arc51bx>
+<!--      <freq01 type="int"></freq01>
+      <city01 type="string"></city01>
+      <freq02 type="int"></freq02>
+      <city02 type="string"></city02>
+      <freq03 type="int"></freq03>
+      <city03 type="string"></city03>
+      <freq04 type="int"></freq04>
+      <city04 type="string"></city04>
+      <freq05 type="int"></freq05>
+      <city05 type="string"></city05>
+      <freq06 type="int"></freq06>
+      <city06 type="string"></city06>
+      <freq07 type="int"></freq07>
+      <city07 type="string"></city07>
+      <freq08 type="int"></freq08>
+      <city08 type="string"></city08>
+      <freq09 type="int"></freq09>
+      <city09 type="string"></city09>
+      <freq10 type="int"></freq10>
+      <city10 type="string"></city10>
+      <freq11 type="int"></freq11>
+      <city11 type="string"></city11>
+      <freq12 type="int"></freq12>
+      <city12 type="string"></city12>
+      <freq13 type="int"></freq13>
+      <city13 type="string"></city13>
+      <freq14 type="int"></freq14>
+      <city14 type="string"></city14>
+      <freq15 type="int"></freq15>
+      <city15 type="string"></city15>
+      <freq16 type="int"></freq16>
+      <city16 type="string"></city16>
+      <freq17 type="int"></freq17>
+      <city17 type="string"></city17>
+      <freq18 type="int"></freq18>
+      <city18 type="string"></city18>
+      <freq19 type="int"></freq19>
+      <city19 type="string"></city19>
+      <freq20 type="int"></freq20>/
+      <city20 type="string"></city20> -->
+      <func type="int">0</func>
+      <freq_tk type="int">0</freq_tk>
+      <freq_kk type="int">0</freq_kk>
+      <freq_m type="int">0</freq_m>
+      <freq_tm type="int">0</freq_tm>
+      <freq_km type="int">0</freq_km>
+      <presetchan type="int">0</presetchan>
+      <source type="int">1</source>
+      <sqdisable type="bool">false</sqdisable>
+      <volume type="int">50</volume>
+    </arc51bx>
+    <arc54>
+      <apoti type="int">3</apoti>
+      <bpoti type="int">0</bpoti>
+      <cpoti type="int">0</cpoti>
+      <dpoti type="int">0</dpoti>
+      <func type="int">0</func>
+      <squelch type="int">0</squelch>
+      <volume type="int">50</volume>
+    </arc54>
+    <arn82>
+      <left type="int">0</left>
+      <pwr type="int">0</pwr>
+      <right type="int">0</right>
+      <vol type="int">3</vol>
+    </arn82>
+    <arn83>
+      <bfo type="bool">false</bfo>
+      <gain type="int">0</gain>
+      <gainswitch type="int">0</gainswitch>
+      <loopadf type="int">0</loopadf>
+    </arn83>
+    <c6533>
+      <aux type="bool">true</aux>
+      <hotmike type="bool">false</hotmike>
+      <nav type="bool">true</nav>
+      <receiver1 type="bool">true</receiver1>
+      <receiver2 type="bool">true</receiver2>
+      <receiver3 type="bool">true</receiver3>
+      <receiver4 type="bool">true</receiver4>
+      <receiver5 type="bool">true</receiver5>
+      <transmitter type="int">true</transmitter>
+      <volume type="int">80</volume>
+    </c6533>
+    <c6533cp>
+      <aux type="bool">0</aux>
+      <hotmike type="bool">0</hotmike>
+      <nav type="bool">0</nav>
+      <receiver1 type="bool">0</receiver1>
+      <receiver2 type="bool">0</receiver2>
+      <receiver3 type="bool">0</receiver3>
+      <receiver4 type="bool">0</receiver4>
+      <receiver5 type="bool">0</receiver5>
+      <transmitter type="int">0</transmitter>
+      <volume type="int">50</volume>
+    </c6533cp>
+    <engine>
+      <clutchguard type="bool">false</clutchguard>
+      <intauxfuelleft type="bool">false</intauxfuelleft>
+      <intauxfuelright type="bool">false</intauxfuelright>
+      <gov type="bool">true</gov>
+      <mainfuel type="bool">false</mainfuel>
+      <startfuel type="bool">false</startfuel>
+    </engine>
+    <r1041>
+      <func type="int">0</func>
+      <mode type="bool">false</mode>
+    </r1041>
+    <sounds>
+      <sounder type="bool">false</sounder>
+    </sounds>
+    <warn>
+      <dc_generator type="bool">false</dc_generator>
+      <door_lock type="bool">false</door_lock>
+      <eng_fuel_pump type="bool">false</eng_fuel_pump>
+      <eng_oil_filter type="bool">false</eng_oil_filter>
+      <engine_ice_det type="bool">false</engine_ice_det>
+      <engine_icing type="bool">false</engine_icing>
+      <engine_deice_on type="bool">false</engine_deice_on>
+      <engine_oil_press type="bool">false</engine_oil_press>
+      <fuel_boost_right type="bool">false</fuel_boost_right>
+      <fuel_boost_left type="bool">false</fuel_boost_left>
+      <fuel_filter type="bool">false</fuel_filter>
+      <fuel_low_level type="bool">false</fuel_low_level>
+      <gov_emer type="bool">false</gov_emer>
+      <hyd1_pressure type="bool">false</hyd1_pressure>
+      <hyd2_pressure type="bool">false</hyd2_pressure>
+      <inst_inverter type="bool">false</inst_inverter>
+      <spare type="bool">false</spare>
+      <counter type="int">0</counter>
+      <xmsn_oil_hot type="bool">false</xmsn_oil_hot>
+      <xmsn_oil_press type="bool">false</xmsn_oil_press>
+    </warn>
+  </switches>
+
+  <wiper>
+    <pos type="int">0</pos>
+    <poscp type="int">0</poscp>
+    <posp type="int">0</posp>
+    <speed type="int">0</speed>
+    <side type="int">0</side>
+  </wiper>
+
+</PropertyList>
